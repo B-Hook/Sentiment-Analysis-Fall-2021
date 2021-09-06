@@ -29,10 +29,9 @@ int main(int argc, char** argv) {
 
         cout << endl;
 
-        cout << obj1 << endl;
+        cout << obj1.c_str()<< endl;
 
     }
 
-    std::cout << "Hello, World!" << std::endl;
     return 0;
 }
