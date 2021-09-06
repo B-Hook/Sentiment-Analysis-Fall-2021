@@ -12,40 +12,25 @@ int main(int argc, char** argv) {
 
     if (file1.is_open()){
         char char1[500];
-        char char2[1000];
+        //char char2[1000];
         char char3[1000];
 
         file1.getline(char1, 500, '\n');
-        file1.getline(char2, 1000, '\n');
+        //file1.getline(char2, 1000, '\n');
         file1.getline(char3, 1000, '\n');
 
-        DSString obj1 (file1.getline(char2, 1000,'\n'));
-
-        DSString obj2;
-
-        file1.getline(obj2, 1000,'\n');
+        char char2[1000];
+        //DSString obj1;
 
 
-        /**
-        This goes into the tweet object!
+        file1.getline(char2, 1000,'\n');
 
-        DSString data;
-
-        file1.getline(data, 1000, '\n');
-
-         **/
-
+        DSString obj1(char2);
 
         cout << endl;
 
-        cout << char1 << endl;
-        cout << char2 << endl;
-        cout << char3 << endl;
+        cout << obj1 << endl;
 
-
-        //while (file1.getline(char1, 100)){
-        //    file1.getline(char1, 100);
-       // }
     }
 
     std::cout << "Hello, World!" << std::endl;
