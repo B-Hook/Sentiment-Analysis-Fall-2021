@@ -20,7 +20,7 @@ DSString::DSString(const DSString &obj) {
 
 DSString::~DSString() {
     //for (int i = 0; i < getLength(); i++)
-    //delete data;
+        //delete data;
 }
 
 DSString &DSString::operator=(const char *copy) {

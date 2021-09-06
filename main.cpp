@@ -12,20 +12,26 @@ int main(int argc, char** argv) {
 
     if (file1.is_open()){
         char char1[500];
-        //char char2[1000];
+        char char2[1000];
         char char3[1000];
 
         file1.getline(char1, 500, '\n');
-        //file1.getline(char2, 1000, '\n');
+        file1.getline(char2, 1000, '\n');
         file1.getline(char3, 1000, '\n');
 
-        char char2[1000];
+        //char char2[1000];
         //DSString obj1;
 
 
-        file1.getline(char2, 1000,'\n');
+        //file1.getline(char2, 1000,'\n');
 
         DSString obj1(char2);
+
+        DSString obj2(char3);
+
+        cout << obj1.c_str()<< endl;
+
+        obj1 = obj2;
 
         cout << endl;
 
