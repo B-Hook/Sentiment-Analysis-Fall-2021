@@ -19,6 +19,12 @@ int main(int argc, char** argv) {
         file1.getline(char2, 1000, '\n');
         file1.getline(char3, 1000, '\n');
 
+        DSString obj1 (file1.getline(char2, 1000,'\n'));
+
+        DSString obj2;
+
+        file1.getline(obj2, 1000,'\n');
+
 
         /**
         This goes into the tweet object!

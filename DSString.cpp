@@ -5,30 +5,28 @@
 #include "DSString.h"
 
 DSString::DSString() {
-
+    data = nullptr;
 }
 
 DSString::DSString(const char *cStr) {
-
+    *data = *cStr;
 }
 
-DSString::DSString(const DSString &) {
-
+DSString::DSString(const DSString &obj) {
+    this->data = obj.data;
 }
 
 DSString::~DSString() {
-
+    //for (int i = 0; i < getLength(); i++)
+    delete [] data;
 }
 
 DSString &DSString::operator=(const char *copy) {
 
     if (this->data != copy) {
-        //deletes the inital pointers
         delete data;
-        //then assigns them copies
         this->data = new char();
         strcpy(this->data, copy);
-        *data = *copy;
     }
     return *this;
 }
@@ -75,7 +73,7 @@ int DSString::getLength() {
 }
 
 DSString DSString::substring(int start, int numChars) {
-    
+
     char newStr [numChars + 1];
     DSString newObj;
     memcpy(newStr, this->data + start, numChars);
@@ -84,9 +82,9 @@ DSString DSString::substring(int start, int numChars) {
 }
 
 char *DSString::c_str() {
-    return nullptr;
+    return this->data;
 }
 
-std::ostream &operator<<(std::ostream &, const DSString &) {
-    return <#initializer#>;
+std::ostream &operator<<(std::ostream &oFile, const DSString &objPrint) {
+    return oFile << objPrint.data;
 }
