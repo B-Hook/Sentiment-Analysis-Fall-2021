@@ -29,6 +29,7 @@ DSString::~DSString() {
 }
 
 DSString &DSString::operator=(const char *copy) {
+    //std::cout << "Char = operator" << std::endl;
     if (this->data != copy) {
         delete[] this->data;
         this->data = new char[strlen(copy) + 1];
@@ -38,6 +39,7 @@ DSString &DSString::operator=(const char *copy) {
 }
 
 DSString &DSString::operator=(const DSString &copy) {
+    //std::cout << "DSString = operator" << std::endl;
     if (this->data != copy.data) {
         delete[] this->data;
         this->data = new char[strlen(copy.data) + 1];
@@ -67,6 +69,7 @@ DSString &DSString::operator=(const DSString &copy) {
 }*/
 
 DSString DSString::operator+(const DSString &a) {
+    //std::cout << "Add operator" << std::endl;
 
     char newStr [strlen(this->data) + strlen(a.data) + 1];
     strcat(newStr, this->data);
