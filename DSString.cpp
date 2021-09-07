@@ -3,32 +3,55 @@
 //
 
 #include "DSString.h"
+#include <iostream>
 
 DSString::DSString() {
-    data [0] = '\0';
+    data = nullptr;
 }
 
 DSString::DSString(const char *cStr) {
-    for (int i = 0; i < strlen(cStr); i++)
-        data [i] = cStr [i];
+
+    this->data = new char[strlen(cStr) + 1];
+    strcpy(this->data, cStr);
+
 }
 
 DSString::DSString(const DSString &obj) {
-    for (int i = 0; i < strlen(obj.data); i++)
-        data [i] = obj.data [i];
+
+    this->data = new char[strlen(obj.data) + 1];
+    strcpy(this->data, obj.data);
+
 }
 
 DSString::~DSString() {
-    //for (int i = 0; i < getLength(); i++)
-        //delete data;
+    std::cout<< "destructor" << std::endl;
+        delete[] this->data;
 }
 
 DSString &DSString::operator=(const char *copy) {
+    if (this->data != copy) {
+        delete[] this->data;
+        this->data = new char[strlen(copy) + 1];
+        strcpy(this->data, copy);
+    }
+    return *this;
+}
+
+DSString &DSString::operator=(const DSString &copy) {
+    if (this->data != copy.data) {
+        delete[] this->data;
+        this->data = new char[strlen(copy.data) + 1];
+        strcpy(this->data, copy.data);
+    }
+    return *this;
+}
+
+/*DSString &DSString::operator=(const char *copy) {
 
     if (this->data != copy) {
         //delete data;
         //this->data = new char();
-        strcpy(this->data, copy);
+        //strcpy(this->data, copy);
     }
     return *this;
 }
@@ -41,12 +64,14 @@ DSString &DSString::operator=(const DSString &copy) {
         strcpy(this->data, copy.data);
     }
     return *this;
-}
+}*/
 
 DSString DSString::operator+(const DSString &a) {
-    DSString newStr;
-    *newStr.data = *this->data;
-    strcat(newStr.data, a.data);
+
+    char newStr [strlen(this->data) + strlen(a.data) + 1];
+    strcat(newStr, this->data);
+    strcat(newStr, a.data);
+
     return newStr;
 }
 

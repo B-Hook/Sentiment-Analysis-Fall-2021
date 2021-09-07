@@ -28,7 +28,7 @@ private:
      *    A quick google search will return plenty of references on
      *    the c-string functions.
      **/
-    char data[1000];
+    char *data;
 
 public:
 

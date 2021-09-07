@@ -37,6 +37,12 @@ int main(int argc, char** argv) {
 
         cout << obj1.c_str()<< endl;
 
+        DSString obj3 (char3);
+
+        obj3 = obj1 + obj3;
+
+        cout << obj3.c_str() << endl;
+
     }
 
     return 0;
