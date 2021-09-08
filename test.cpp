@@ -3,7 +3,6 @@
 //
 
 #include "catch.hpp"
-#include <cstring>
 #include "DSString.h"
 
 TEST_CASE("Testing DSString")
@@ -16,6 +15,7 @@ TEST_CASE("Testing DSString")
     DSString f = DSString("uppercase");
     DSString g = DSString("");
     DSString h = DSString("\n");
+    DSString i = DSString("                    ");
     //char y = 'y';
 
 
@@ -43,4 +43,31 @@ TEST_CASE("Testing DSString")
         CHECK(a + b + c == "1Ten Char10Multiple words/Actual Tweet");
     }
 
+    SECTION("Greater than operator DSString"){
+        CHECK(b > a);
+        CHECK(e > f);
+        CHECK(c > g);
+        CHECK(b > g);
+    }
+    SECTION("[] Operator"){
+        CHECK(b[1] == 'e');
+        CHECK(c[8] == ' ');
+        CHECK(g[0] == 0);
+    }
+    SECTION("getLength function"){
+        CHECK(d.getLength() == 10);
+        CHECK(g.getLength() == 0);
+        CHECK(i.getLength() == 20);
+        CHECK(e.getLength() == 9);
+    }
+    SECTION("Substring function") {
+        CHECK(a.substring(0, 1) == "1");
+        CHECK(f.substring(0, 5) == "upperc");
+        CHECK(f.substring(1, 6) == "pperca");
+    }
+    SECTION("c_str function"){
+        CHECK(strcmp(b.c_str(), "Ten Char10") == 0);
+        CHECK(strcmp(d.c_str(), b.c_str()) == 0);
+        CHECK(strcmp(g.c_str(), "") == 0);
+    }
 }

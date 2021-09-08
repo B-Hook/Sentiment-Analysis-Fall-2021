@@ -72,7 +72,7 @@ public:
      * Subscript operator to access a particular character of a DSString object
      * @return the character requested by reference
      */
-    char& operator[] (const int);
+    char& operator[] (const int) const;
 
     /**
      * getLength() returns the number (count) of characters in the string.
