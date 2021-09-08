@@ -31,7 +31,7 @@ int main(int argc, char** argv) {
 
         //file1.getline(char2, 1000,'\n');
 
-        //DSString obj1(char2);
+        DSString obj1(char2);
         //char* a = new char (1);
         //*a = '4';
 
@@ -40,9 +40,17 @@ int main(int argc, char** argv) {
 
         DSString obj2(char3);
 
-        //Tweet tweet1(obj1, obj2);
+        LinkedList testList;
+
+        Tweet tweet1(obj1, obj2);
+        /** There is something wrong when appending the tweet.
+         *  Could have to do with the copy constructor in tweet.
+         **/
+        //testList.append(tweet1);
 
         //cout << tweet1.getActualTweet() << endl;
+
+        //testList.display();
 
         /*cout << obj1.c_str()<< endl;
 
@@ -56,9 +64,9 @@ int main(int argc, char** argv) {
 
         obj3 = obj1 + obj3;
 
-        cout << obj3.c_str() << endl;*/
+        cout << obj3.c_str() << endl;
 
-    //}
+    }*/
 
     return 0;
 }
