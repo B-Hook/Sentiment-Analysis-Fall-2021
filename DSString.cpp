@@ -25,13 +25,17 @@ DSString::DSString(const DSString &obj) {
 
 DSString::~DSString() {
     std::cout<< "destructor" << std::endl;
+    if (this->data != nullptr){
         delete[] this->data;
+    }
+
 }
 
 DSString &DSString::operator=(const char *copy) {
     //std::cout << "Char = operator" << std::endl;
     if (this->data != copy) {
-        delete[] this->data;
+        if (this->data != nullptr)
+            delete[] this->data;
         this->data = new char[strlen(copy) + 1];
         strcpy(this->data, copy);
     }
@@ -41,7 +45,8 @@ DSString &DSString::operator=(const char *copy) {
 DSString &DSString::operator=(const DSString &copy) {
     //std::cout << "DSString = operator" << std::endl;
     if (this->data != copy.data) {
-        delete[] this->data;
+        if (this->data != nullptr)
+            delete[] this->data;
         this->data = new char[strlen(copy.data) + 1];
         strcpy(this->data, copy.data);
     }
@@ -59,23 +64,41 @@ DSString DSString::operator+(const DSString &a) {
 }
 
 bool DSString::operator==(const char *c) {
-    return this->data == c;
+    int a = strcmp(this->data, c);
+        if (a == 0)
+            return true;
+        else
+            return false;
 }
 
 bool DSString::operator==(const DSString &c) {
-    return *this == c;
+    int a = strcmp(this->data, c.data);
+    if (a == 0)
+        return true;
+    else
+        return false;
 }
 
 bool DSString::operator>(const DSString &c) {
-    return *this > c;
+    int a = strcmp(this->data, c.data);
+    if (a > 0)
+        return true;
+    else
+        return false;
 }
 
 bool DSString::operator>(const char *c) {
-    return this->data > c;
+    int a = strcmp(this->data, c);
+    if (a > 0)
+        return true;
+    else
+        return false;
 }
 
 char &DSString::operator[](const int index) {
-    return this->data[index];
+    if (strlen(this->data) < index) {
+        return this->data[index];
+    }
 }
 
 int DSString::getLength() {

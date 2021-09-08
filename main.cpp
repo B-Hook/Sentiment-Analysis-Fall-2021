@@ -3,6 +3,9 @@
 #include "DSString.h"
 #include "LinkedList.h"
 #include "Tweet.h"
+#define CATCH_CONFIG_RUNNER
+#include "catch.hpp"
+
 using namespace std;
 
 void controlCenter (char*, int);
@@ -116,12 +119,13 @@ void controlCenter (char* filePassed, int type){
             //memset(char1, 0, strlen(char1)); //wiping username
             file.getline(char1, 281, '\n');
             DSString actualTweet(char1);
+            Tweet tweet;
+            //Tweet tweet (sVal, actualTweet);
 
-            Tweet tweet (sVal, actualTweet);
 
-
-            //tweet.setSVal(sVal);
-            //tweet.setActualTweet(actualTweet);
+            tweet.setSVal(sVal);
+            //tweet.setId(nullptr);
+            tweet.setActualTweet(actualTweet);
 
 
             //if (charS[0] == '0')

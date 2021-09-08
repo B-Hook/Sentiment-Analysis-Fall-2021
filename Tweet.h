@@ -22,6 +22,7 @@ public:
     // Rule of 3
     Tweet(const Tweet &copy);
     Tweet& operator=(const Tweet &copy);
+    bool operator==(const Tweet &copy);
     ~Tweet();
     void display(int);
     // Getters and Setters
