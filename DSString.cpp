@@ -48,26 +48,6 @@ DSString &DSString::operator=(const DSString &copy) {
     return *this;
 }
 
-/*DSString &DSString::operator=(const char *copy) {
-
-    if (this->data != copy) {
-        //delete data;
-        //this->data = new char();
-        //strcpy(this->data, copy);
-    }
-    return *this;
-}
-
-DSString &DSString::operator=(const DSString &copy) {
-
-    if (this != &copy) {
-        //delete[] data;
-        *this->data = *new char[strlen(copy.data) + 1];
-        strcpy(this->data, copy.data);
-    }
-    return *this;
-}*/
-
 DSString DSString::operator+(const DSString &a) {
     //std::cout << "Add operator" << std::endl;
 
@@ -104,10 +84,9 @@ int DSString::getLength() {
 
 DSString DSString::substring(int start, int numChars) {
 
-    char newStr [numChars + 1];
     DSString newObj;
-    memcpy(newStr, this->data + start, numChars);
-    *newObj.data = *newStr;
+    newObj.data = new char [numChars + 1];
+    memcpy(newObj.data, this->data + start, numChars);
     return newObj;
 }
 

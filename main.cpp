@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include "DSString.h"
+#include "Tweet.h"
 using namespace std;
 int main(int argc, char** argv) {
 
@@ -26,10 +27,19 @@ int main(int argc, char** argv) {
         //file1.getline(char2, 1000,'\n');
 
         DSString obj1(char2);
+        char* a = new char (1);
+        *a = '4';
+
+        if(obj1.substring(0, 1) == a);
+            cout << "comparing ID works this way" << endl;
 
         DSString obj2(char3);
 
-        cout << obj1.c_str()<< endl;
+        Tweet tweet1(obj1, obj2);
+
+        cout << tweet1.getActualTweet() << endl;
+
+        /*cout << obj1.c_str()<< endl;
 
         obj1 = obj2;
 
@@ -41,7 +51,7 @@ int main(int argc, char** argv) {
 
         obj3 = obj1 + obj3;
 
-        cout << obj3.c_str() << endl;
+        cout << obj3.c_str() << endl;*/
 
     }
 
