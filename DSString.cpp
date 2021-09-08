@@ -34,8 +34,8 @@ DSString::~DSString() {
 DSString &DSString::operator=(const char *copy) {
     std::cout << "Char = operator" << std::endl;
     if (this->data != copy) {
-        if (this->data != nullptr)
-            delete[] this->data;
+        //if (this->data != nullptr)
+        delete[] this->data;
         this->data = new char[strlen(copy) + 1];
         strcpy(this->data, copy);
     }
@@ -62,7 +62,7 @@ DSString DSString::operator+(const DSString &a) {
     return newStr;
 }
 
-bool DSString::operator==(const char *c) {
+bool DSString::operator==(const char *c) const{
     int a = strcmp(this->data, c);
         if (a == 0)
             return true;
@@ -70,7 +70,7 @@ bool DSString::operator==(const char *c) {
             return false;
 }
 
-bool DSString::operator==(const DSString &c) {
+bool DSString::operator==(const DSString &c) const{
     int a = strcmp(this->data, c.data);
     if (a == 0)
         return true;
@@ -78,7 +78,7 @@ bool DSString::operator==(const DSString &c) {
         return false;
 }
 
-bool DSString::operator>(const DSString &c) {
+bool DSString::operator>(const DSString &c) const{
     int a = strcmp(this->data, c.data);
     if (a > 0)
         return true;
@@ -86,7 +86,7 @@ bool DSString::operator>(const DSString &c) {
         return false;
 }
 
-bool DSString::operator>(const char *c) {
+bool DSString::operator>(const char *c) const{
     int a = strcmp(this->data, c);
     if (a > 0)
         return true;

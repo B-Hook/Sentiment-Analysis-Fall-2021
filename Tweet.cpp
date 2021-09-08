@@ -69,7 +69,6 @@ Tweet::Tweet(const Tweet &copy) {
         *actualTweet = *(copy.actualTweet);
     //}
     //this->actualTweet = copy.actualTweet;
-
 }
 
 Tweet &Tweet::operator=(const Tweet &copy) {
@@ -98,6 +97,7 @@ Tweet &Tweet::operator=(const Tweet &copy) {
         //}
         //this->actualTweet = copy.actualTweet;
     }
+    return *this;
 }
 
 Tweet::~Tweet() {

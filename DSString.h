@@ -63,10 +63,10 @@ public:
      *
      **/
 
-    bool operator== (const char*);
-    bool operator== (const DSString&);
-    bool operator> (const DSString&);
-    bool operator> (const char*);
+    bool operator== (const char*) const;
+    bool operator== (const DSString&) const;
+    bool operator> (const DSString&) const;
+    bool operator> (const char*) const;
 
     /**
      * Subscript operator to access a particular character of a DSString object
