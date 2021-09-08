@@ -61,7 +61,7 @@ LinkedList &LinkedList::operator=(const LinkedList &copy){
 void LinkedList::append(Tweet tweet) {
 
     Node *newNode = new Node; // New allocated node on the heap
-    newNode->data = tweet; // transaction object is entered in the data
+    newNode->data = tweet; // tweet object is entered in the data
     newNode->next = nullptr; // next ptr is currently null
     // if head is currently null, the new node will be allocate to the head and tail
     if (this->head == nullptr) {
@@ -76,12 +76,12 @@ void LinkedList::append(Tweet tweet) {
     *length = *length + 1; // increase length by 1
 }
 
-void LinkedList::search(DSString str1, DSString strType) {
+void LinkedList::display() {
     // implement search
     Node *curr = this->head;
-    int count = 0; //count is to make sure header isn't printed more than once
     //transversing through list
     while (curr != nullptr) {
+        cout << curr->data.getSVal() << " : " << curr->data.getActualTweet() << endl;
         curr = curr->next; //goes to next node
     }
 }

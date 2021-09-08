@@ -5,37 +5,58 @@
 #include "Tweet.h"
 
 Tweet::Tweet() {
-
-}
-
-Tweet::Tweet(bool &positive , DSString &id) {
-
-    this->positive = new bool (positive);
-    this->id =  new DSString (id);
+    this->sVal = nullptr;
+    this->id = nullptr;
     this->actualTweet = nullptr;
+}
+
+Tweet::Tweet(DSString &val1 , DSString &val2) {
+
+    if (val1.getLength() == 1) {
+        this->sVal = new DSString(val1);
+        this->id = nullptr;
+        this->actualTweet = nullptr;
+    }
+    else if (val1.getLength() == 10) {
+        this->id = new DSString(val1);
+        this->sVal = nullptr;
+        this->actualTweet = nullptr;
+    }
+    else {
+        this->actualTweet = new DSString (val1);
+        this->sVal = nullptr;
+        this->id = nullptr;
+    }
+    if (val2.getLength() == 1)
+        this-> sVal = new DSString (val2);
+    else if (val2.getLength() == 10)
+        this->id = new DSString (val2);
+    else {
+        this->actualTweet = new DSString (val2);
+    }
 
 }
 
-Tweet::Tweet(DSString &id, DSString &actualTweet) {
+/*Tweet::Tweet(DSString &id, DSString &actualTweet) {
 
-    this->positive = nullptr;
+    this->sVal = nullptr;
     this->id =  new DSString (id);
     this->actualTweet = new DSString (actualTweet);
 
 }
 
-Tweet::Tweet(bool &positive, DSString &id, DSString &actualTweet) {
+Tweet::Tweet(DSString &positive, DSString &id, DSString &actualTweet) {
 
-    this->positive = new bool (positive);
+    this->sVal = new bool (positive);
     this->id =  new DSString (id);
     this->actualTweet = new DSString (actualTweet);
 
-}
+}*/
 
 Tweet::Tweet(const Tweet &copy) {
 
-    this->positive = new bool();
-    *positive = *(copy.positive);
+    this->sVal = new DSString();
+    *sVal = *(copy.sVal);
 
     this->id = new DSString();
     *id = *(copy.id);
@@ -48,12 +69,12 @@ Tweet::Tweet(const Tweet &copy) {
 Tweet &Tweet::operator=(const Tweet &copy) {
     if (this != &copy){
 
-        delete positive;
+        delete sVal;
         delete id;
         delete actualTweet;
 
-        this->positive = new bool();
-        *positive = *(copy.positive);
+        this->sVal = new DSString();
+        *sVal = *(copy.sVal);
 
         this->id = new DSString();
         *id = *(copy.id);
@@ -64,18 +85,30 @@ Tweet &Tweet::operator=(const Tweet &copy) {
 }
 
 Tweet::~Tweet() {
-    delete positive;
+    delete sVal;
     delete id;
     delete actualTweet;
 
 }
 
-bool Tweet::getPositive() {
-    return positive;
+void Tweet::setSVal(DSString &sVal) {
+    this->sVal = new DSString(sVal);
+}
+
+DSString Tweet::getSVal() {
+    return *sVal;
+}
+
+void Tweet::setId(DSString &id) {
+    this->id = new DSString(id);
 }
 
 DSString Tweet::getId() {
     return *id;
+}
+
+void Tweet::setActualTweet(DSString &actualTweet) {
+    this->actualTweet = new DSString(actualTweet);
 }
 
 DSString Tweet::getActualTweet() {
