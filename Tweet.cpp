@@ -56,13 +56,16 @@ Tweet::Tweet(DSString &positive, DSString &id, DSString &actualTweet) {
 Tweet::Tweet(const Tweet &copy) {
 
     this->sVal = new DSString();
-    *sVal = *(copy.sVal);
+    //*sVal = *(copy.sVal);
+    this->sVal = copy.sVal;
 
     this->id = new DSString();
-    *id = *(copy.id);
+    //*id = *(copy.id);
+    this->id = copy.id;
 
     this->actualTweet = new DSString();
-    *actualTweet = *(copy.actualTweet);
+    //*actualTweet = *(copy.actualTweet);
+    this->actualTweet = copy.actualTweet;
 
 }
 
@@ -74,13 +77,16 @@ Tweet &Tweet::operator=(const Tweet &copy) {
         delete actualTweet;
 
         this->sVal = new DSString();
-        *sVal = *(copy.sVal);
+        //*sVal = *(copy.sVal);
+        this->sVal = copy.sVal;
 
         this->id = new DSString();
-        *id = *(copy.id);
+        //*id = *(copy.id);
+        this->id = copy.id;
 
         this->actualTweet = new DSString();
-        *actualTweet = *(copy.actualTweet);
+        //*actualTweet = *(copy.actualTweet);
+        this->actualTweet = copy.actualTweet;
     }
 }
 

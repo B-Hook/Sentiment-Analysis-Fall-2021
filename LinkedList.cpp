@@ -81,7 +81,7 @@ void LinkedList::display() {
     Node *curr = this->head;
     //transversing through list
     while (curr != nullptr) {
-        cout << curr->data.getSVal() << " : " << curr->data.getActualTweet() << endl;
+        cout << curr->data.getSVal().c_str() << " : " << curr->data.getActualTweet().c_str() << endl;
         curr = curr->next; //goes to next node
     }
 }

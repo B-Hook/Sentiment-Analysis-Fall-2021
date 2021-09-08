@@ -4,16 +4,20 @@
 #include "LinkedList.h"
 #include "Tweet.h"
 using namespace std;
+
+void controlCenter (char*, int);
+
 int main(int argc, char** argv) {
 
     for(int i = 0; i < argc; i++){
         cout <<"argv["<< i << "]: " << argv[i] << endl;
     }
 
-    ifstream file1 (argv[1]);
+    //ifstream file1 (argv[1]);
 
-    if (file1.is_open()){
-        char char1[500];
+    //if (file1.is_open()){
+        controlCenter (argv[1], 1);
+        /*char char1[500];
         char char2[1000];
         char char3[1000];
 
@@ -54,53 +58,76 @@ int main(int argc, char** argv) {
 
         cout << obj3.c_str() << endl;*/
 
-    }
+    //}
 
     return 0;
 }
 
-void controlCenter (ifstream file, int type){
+void controlCenter (char* filePassed, int type){
     LinkedList negative;
     LinkedList positive;
     char char1[281];
     char charS[2];
     char charId[11];
+    char charIgnore[200];
     int count = 0;
+    ifstream file (filePassed);
 
-    file.getline(char1, 281, '\n');
-    //LinkedList list; //new LinkedList object is made
-    memset(char1, 0, strlen(char1));
+    if (file.is_open()) {
 
-    //while (!file.eof()) {
-    while (count < 17){
-        count++;
-        file.getline(charS, 1, ',');
-        DSString sVal(charS);
-        file.getline(charId, 10, ',');
-        DSString id(charId);
-        file.getline(char1, 281, ',');
-        memset(char1, 0, strlen(char1)); //wiping date
-        file.getline(char1, 281, ',');
-        memset(char1, 0, strlen(char1)); //wiping query
-        file.getline(char1, 281, ',');
-        memset(char1, 0, strlen(char1)); //wiping username
-        file.getline(char1, 281, ',');
-        DSString actualTweet(char1);
+        file.getline(charIgnore, 281, ',');
+        cout << charIgnore << endl;
+        file.getline(charIgnore, 281, ',');
+        cout << charIgnore << endl;
+        file.getline(charIgnore, 281, ',');
+        cout << charIgnore << endl;
+        file.getline(charIgnore, 281, ',');
+        cout << charIgnore << endl;
+        file.getline(charIgnore, 281, ',');
+        cout << charIgnore << endl;
+        file.getline(charIgnore, 281, '\n');
+        cout << charIgnore << endl;
+        //DSString test (char1);
 
-        Tweet tweet;
+        //cout << test << endl;
+        //LinkedList list; //new LinkedList object is made
+        //memset(char1, 0, strlen(char1));
 
-        if (1 == type) {
-            tweet.setSVal(sVal);
-            tweet.setActualTweet(actualTweet);
+        //while (!file.eof()) {
+        while (count < 17) {
+            count++;
+            file.getline(charS, 2, ',');
+            DSString sVal(charS);
+            file.getline(charId, 11, ',');
+            DSString id(charId);
+            file.getline(charIgnore, 200, ',');
+            //memset(char1, 0, strlen(char1)); //wiping date
+            file.getline(charIgnore, 200, ',');
+            //memset(char1, 0, strlen(char1)); //wiping query
+            file.getline(charIgnore, 200, ',');
+            //memset(char1, 0, strlen(char1)); //wiping username
+            file.getline(char1, 281, '\n');
+            DSString actualTweet(char1);
+
+            Tweet tweet (sVal, actualTweet);
+
+
+            //tweet.setSVal(sVal);
+            //tweet.setActualTweet(actualTweet);
+
+
+            //if (charS[0] == '0')
+                //negative.append(tweet);
+            //if (charS[0] == '4')
+                positive.append(tweet);
+
+            //memset(char1, 0, strlen(char1));
+            //memset(charS, 0, strlen(charS));
+            //memset(charId, 0, strlen(charId));
         }
-
-        if (*charS == '0')
-            negative.append(tweet);
-        if (*charS == '4')
-            positive.append(tweet);
+        //cout << "Negative" << "\n \n \n" << endl;
+        //negative.display();
+        cout << "Positive" << "\n \n \n" << endl;
+        positive.display();
     }
-    cout << "Negative" << "\n \n \n" << endl;
-    negative.display();
-    cout << "Positive" << "\n \n \n" << endl;
-    positive.display();
 }
