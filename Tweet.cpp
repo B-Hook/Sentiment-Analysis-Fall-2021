@@ -10,7 +10,7 @@ Tweet::Tweet() {
     this->actualTweet = nullptr;
 }
 
-Tweet::Tweet(DSString &val1 , DSString &val2) {
+/*Tweet::Tweet(DSString &val1 , DSString &val2) {
 
     if (val1.getLength() == 1) {
         this->sVal = new DSString(val1);
@@ -35,7 +35,7 @@ Tweet::Tweet(DSString &val1 , DSString &val2) {
         this->actualTweet = new DSString (val2);
     }
 
-}
+}*/
 
 /*Tweet::Tweet(DSString &id, DSString &actualTweet) {
 
@@ -43,31 +43,31 @@ Tweet::Tweet(DSString &val1 , DSString &val2) {
     this->id =  new DSString (id);
     this->actualTweet = new DSString (actualTweet);
 
-}
+}*/
 
-Tweet::Tweet(DSString &positive, DSString &id, DSString &actualTweet) {
+Tweet::Tweet(DSString &sVal, DSString &id, DSString &actualTweet) {
 
-    this->sVal = new bool (positive);
+    this->sVal = new DSString (sVal);
     this->id =  new DSString (id);
     this->actualTweet = new DSString (actualTweet);
 
-}*/
+}
 
 Tweet::Tweet(const Tweet &copy) {
-    if (copy.sVal != nullptr) {
+    //if (copy.sVal != nullptr) {
         this->sVal = new DSString();
         *sVal = *(copy.sVal);
-    }
+    //}
     //this->sVal = copy.sVal;
-    if (copy.id != nullptr) {
+    //if (copy.id != nullptr) {
         this->id = new DSString();
         *id = *(copy.id);
-    }
+    //}
     //this->id = copy.id;
-    if (copy.actualTweet != nullptr) {
+    //if (copy.actualTweet != nullptr) {
         this->actualTweet = new DSString();
         *actualTweet = *(copy.actualTweet);
-    }
+    //}
     //this->actualTweet = copy.actualTweet;
 
 }
@@ -79,23 +79,23 @@ Tweet &Tweet::operator=(const Tweet &copy) {
 //        delete id;
 //        delete actualTweet;
 
-        if (copy.sVal != nullptr) {
+        //if (copy.sVal != nullptr) {
             delete sVal;
             this->sVal = new DSString();
             *sVal = *(copy.sVal);
-        }
+        //}
         //this->sVal = copy.sVal;
-        if (copy.id != nullptr) {
+        //if (copy.id != nullptr) {
             delete id;
             this->id = new DSString();
             *id = *(copy.id);
-        }
+        //}
         //this->id = copy.id;
-        if (copy.actualTweet != nullptr) {
+        //if (copy.actualTweet != nullptr) {
             delete actualTweet;
             this->actualTweet = new DSString();
             *actualTweet = *(copy.actualTweet);
-        }
+        //}
         //this->actualTweet = copy.actualTweet;
     }
 }
@@ -131,7 +131,7 @@ DSString Tweet::getActualTweet() {
     return *actualTweet;
 }
 
-bool Tweet::operator==(const Tweet &copy) {
+/*bool Tweet::operator==(const Tweet &copy) {
     //bool check = false;
     if ((this->sVal == copy.sVal) && (this->id == copy.id) && (this->actualTweet == copy.actualTweet))
         return true;
@@ -141,4 +141,4 @@ bool Tweet::operator==(const Tweet &copy) {
     this->id == copy.id;
 
     //return this->;
-}
+}*/

@@ -75,6 +75,7 @@ int main(int argc, char** argv) {
 }
 
 void controlCenter (char* filePassed, int type){
+    Catch::Session().run();
     LinkedList negative;
     LinkedList positive;
     char char1[281];
@@ -124,7 +125,7 @@ void controlCenter (char* filePassed, int type){
 
 
             tweet.setSVal(sVal);
-            //tweet.setId(nullptr);
+            tweet.setId(id);
             tweet.setActualTweet(actualTweet);
 
 

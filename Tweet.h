@@ -17,12 +17,12 @@ class Tweet {
 
 public:
     Tweet(); // Default Constructor
-    Tweet(DSString&, DSString&); // Whether a tweet is pos or neg and the ID (Test + sentiment)
-    //Tweet(DSString&, DSString&, DSString&); // Pos or Neg, ID, and actual tweet (train)
+    //Tweet(DSString&, DSString&); // Whether a tweet is pos or neg and the ID (Test + sentiment)
+    Tweet(DSString&, DSString&, DSString&); // Pos or Neg, ID, and actual tweet (train)
     // Rule of 3
     Tweet(const Tweet &copy);
     Tweet& operator=(const Tweet &copy);
-    bool operator==(const Tweet &copy);
+    //bool operator==(const Tweet &copy);
     ~Tweet();
     void display(int);
     // Getters and Setters
