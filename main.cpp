@@ -129,17 +129,17 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
             tweet.setActualTweet(actualTweet);
 
 
-            //if (charS[0] == '0')
-                //negative.append(tweet);
-            //if (charS[0] == '4')
+            if (charS[0] == '0')
+                negative.append(tweet);
+            if (charS[0] == '4')
                 positive.append(tweet);
 
             //memset(char1, 0, strlen(char1));
             //memset(charS, 0, strlen(charS));
             //memset(charId, 0, strlen(charId));
         }
-        //cout << "Negative" << "\n \n \n" << endl;
-        //negative.display();
+        cout << "Negative" << "\n \n \n" << endl;
+        negative.display();
         cout << "Positive" << "\n \n \n" << endl;
         positive.display();
     }
