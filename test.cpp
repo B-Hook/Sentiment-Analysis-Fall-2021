@@ -16,7 +16,17 @@ TEST_CASE("Testing DSString")
     DSString g = DSString("");
     DSString h = DSString("\n");
     DSString i = DSString("                    ");
-    //char y = 'y';
+    DSString j = DSString ("aaaa");
+    DSString k = DSString ("bbbb");
+    char char1 = 'y';
+    char char2 = 'n';
+    char char3 = ' ';
+    char char4 = '\n';
+    char char5 = e[0];
+    char char6 = 'y';
+    char char7 = 'Y';
+    char char9 = '1';
+    char char10 = '9';
 
 
     SECTION("Equality operators DSString"){
@@ -25,6 +35,14 @@ TEST_CASE("Testing DSString")
         CHECK(c == "Multiple words/Actual Tweet");
         CHECK(!(e == f));
     }
+    SECTION("Equality operators Char"){
+        CHECK(char1 == 'y');
+        CHECK(char1 == char6);
+        CHECK(char2 == b[2]);
+        CHECK(char3 == i[1]);
+        CHECK(char4 == h[0]);
+        CHECK(!(char5 == f[0]));
+    }
     SECTION("Assignment operators DSString"){
         DSString str;
         str = "1";
@@ -32,9 +50,22 @@ TEST_CASE("Testing DSString")
         str = DSString("Ten Char10");
         CHECK(str == b);
         str = "";
-        //CHECK(str == g);
+        CHECK(str == g);
         str = DSString("\n");
         CHECK(str == h);
+    }
+    SECTION("Assignment operators Char"){
+        char char8;
+        char8 = '1';
+        CHECK(char8 == a[0]);
+        char8 = char('a');
+        CHECK(char8 == j[0]);
+        char8 = ' ';
+        CHECK(char8 == i[2]);
+        char8 = 'a';
+        CHECK(char8 == 'a');
+        char8 = '\n';
+        CHECK(char8 == char4);
     }
     SECTION("Addition operator DSString"){
         CHECK(DSString("1Ten Char10") == a + b);
@@ -45,9 +76,16 @@ TEST_CASE("Testing DSString")
 
     SECTION("Greater than operator DSString"){
         CHECK(b > a);
-        CHECK(e > f);
+        CHECK(f > e);
+        CHECK(k > j);
         CHECK(c > g);
         CHECK(b > g);
+    }
+    SECTION("Greater than operator Char"){
+        CHECK(char1 > char2);
+        CHECK(char6 > char7);
+        CHECK(char2 > char7);
+        CHECK(char10 > char9);
     }
     SECTION("[] Operator"){
         CHECK(b[1] == 'e');
@@ -62,7 +100,7 @@ TEST_CASE("Testing DSString")
     }
     SECTION("Substring function") {
         CHECK(a.substring(0, 1) == "1");
-        CHECK(f.substring(0, 5) == "upperc");
+        CHECK(f.substring(0, 5) == "upper");
         CHECK(f.substring(1, 6) == "pperca");
     }
     SECTION("c_str function"){

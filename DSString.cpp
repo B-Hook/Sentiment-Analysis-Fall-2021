@@ -94,10 +94,10 @@ bool DSString::operator>(const char *c) const{
         return false;
 }
 
-char &DSString::operator[](const int index) const {
-    if (strlen(this->data) < index) {
+char &DSString::operator[](const int index) {
+    //if (strlen(this->data) < index) {
         return this->data[index];
-    }
+    //}
 }
 
 int DSString::getLength() {
