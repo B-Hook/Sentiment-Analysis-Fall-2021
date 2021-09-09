@@ -8,7 +8,7 @@
 
 using namespace std;
 
-void controlCenter (char*, int);
+void controlCenter (char*, char*, int);
 
 int main(int argc, char** argv) {
 
@@ -19,7 +19,7 @@ int main(int argc, char** argv) {
     //ifstream file1 (argv[1]);
 
     //if (file1.is_open()){
-        controlCenter (argv[1], 1);
+        controlCenter (argv[1], argv[4], 1);
         /*char char1[500];
         char char2[1000];
         char char3[1000];
@@ -74,7 +74,7 @@ int main(int argc, char** argv) {
     return 0;
 }
 
-void controlCenter (char* filePassed, int type){
+void controlCenter (char* filePassed, char* oFilePassed, int type){
     Catch::Session().run();
     LinkedList negative;
     LinkedList positive;
@@ -143,4 +143,7 @@ void controlCenter (char* filePassed, int type){
         cout << "Positive" << "\n \n \n" << endl;
         positive.display();
     }
+    ofstream oFile (oFilePassed);
+    oFile << "Test" << endl;
+    oFile.close();
 }
