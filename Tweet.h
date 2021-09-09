@@ -8,6 +8,7 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
+#include <vector>
 #include "DSString.h"
 using namespace std;
 // Transaction class
@@ -30,13 +31,13 @@ public:
     DSString getSVal();
     void setId(DSString&);
     DSString getId();
-    void setActualTweet(DSString&);
-    DSString getActualTweet();
+    void setActualTweet(vector<DSString>&);
+    vector <DSString> getActualTweet();
 
 private:
     DSString *sVal;
     DSString *id;
-    DSString *actualTweet;
+    vector <DSString> actualTweet;
 
 };
 

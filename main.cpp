@@ -78,10 +78,12 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
     Catch::Session().run();
     LinkedList negative;
     LinkedList positive;
+    vector <DSString> words;
     char char1[281];
     char charS[2];
     char charId[11];
     char charIgnore[200];
+    //char charTest [2]= "\n";
     int count = 0;
     ifstream file (filePassed);
 
@@ -106,7 +108,7 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
         //memset(char1, 0, strlen(char1));
 
         //while (!file.eof()) {
-        while (count < 17) {
+        while (count < 15) {
             count++;
             file.getline(charS, 2, ',');
             DSString sVal(charS);
@@ -119,14 +121,36 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
             file.getline(charIgnore, 200, ',');
             //memset(char1, 0, strlen(char1)); //wiping username
             file.getline(char1, 281, '\n');
-            DSString actualTweet(char1);
+            //while (char1[0] == '\n'){
+                //file.getline(char1, 281, ' ');
+            char charWords[strlen(char1)];
+
+
+            for (int i = 0; i < strlen(char1); i++) {
+                if (char1[i] == ' ') {
+                    DSString actualTweet(charWords);
+                    words.push_back(actualTweet);
+                }
+                else if (ispunct(char1[i])){ }
+                else {
+                    char1[i] = tolower(char1[i]);
+                    charWords[i] = char1[i];
+                }
+            }
+
+            for (int i = 0; i < words.size(); i++){
+                cout << words.at(i) << "    ";
+            }
+
+            cout << endl;
+            //DSString actualTweet(char1);
             Tweet tweet;
             //Tweet tweet (sVal, actualTweet);
 
 
             tweet.setSVal(sVal);
             tweet.setId(id);
-            tweet.setActualTweet(actualTweet);
+            tweet.setActualTweet(words);
 
 
             if (charS[0] == '0')

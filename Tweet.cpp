@@ -7,7 +7,7 @@
 Tweet::Tweet() {
     this->sVal = nullptr;
     this->id = nullptr;
-    this->actualTweet = nullptr;
+    this->actualTweet ;
 }
 
 /*Tweet::Tweet(DSString &val1 , DSString &val2) {
@@ -49,7 +49,7 @@ Tweet::Tweet(DSString &sVal, DSString &id, DSString &actualTweet) {
 
     this->sVal = new DSString (sVal);
     this->id =  new DSString (id);
-    this->actualTweet = new DSString (actualTweet);
+    //this->actualTweet = new DSString (actualTweet);
 
 }
 
@@ -65,8 +65,8 @@ Tweet::Tweet(const Tweet &copy) {
     //}
     //this->id = copy.id;
     //if (copy.actualTweet != nullptr) {
-        this->actualTweet = new DSString();
-        *actualTweet = *(copy.actualTweet);
+        //this->actualTweet = new DSString();
+        //*actualTweet = *(copy.actualTweet);
     //}
     //this->actualTweet = copy.actualTweet;
 }
@@ -91,9 +91,9 @@ Tweet &Tweet::operator=(const Tweet &copy) {
         //}
         //this->id = copy.id;
         //if (copy.actualTweet != nullptr) {
-            delete actualTweet;
-            this->actualTweet = new DSString();
-            *actualTweet = *(copy.actualTweet);
+            //delete actualTweet;
+            //this->actualTweet = new DSString();
+            //*actualTweet = *(copy.actualTweet);
         //}
         //this->actualTweet = copy.actualTweet;
     }
@@ -103,7 +103,7 @@ Tweet &Tweet::operator=(const Tweet &copy) {
 Tweet::~Tweet() {
     delete sVal;
     delete id;
-    delete actualTweet;
+    //delete actualTweet;
 
 }
 
@@ -123,12 +123,13 @@ DSString Tweet::getId() {
     return *id;
 }
 
-void Tweet::setActualTweet(DSString &actualTweet) {
-    this->actualTweet = new DSString(actualTweet);
+void Tweet::setActualTweet(vector<DSString> &actualTweet) {
+    //this->actualTweet = new vector<DSString>;
+    this->actualTweet = actualTweet;
 }
 
-DSString Tweet::getActualTweet() {
-    return *actualTweet;
+vector <DSString> Tweet::getActualTweet() {
+    return actualTweet;
 }
 
 /*bool Tweet::operator==(const Tweet &copy) {
