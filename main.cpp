@@ -78,7 +78,6 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
     Catch::Session().run();
     LinkedList negative;
     LinkedList positive;
-    vector <DSString> words;
     char char1[281];
     char charS[2];
     char charId[11];
@@ -87,7 +86,7 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
     int count = 0;
     ifstream file (filePassed);
 
-    if (file.is_open()) {
+    //if (file.is_open()) {
 
         file.getline(charIgnore, 281, ',');
         cout << charIgnore << endl;
@@ -109,6 +108,7 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
 
         //while (!file.eof()) {
         while (count < 15) {
+            vector <DSString> words;
             count++;
             file.getline(charS, 2, ',');
             DSString sVal(charS);
@@ -121,20 +121,31 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
             file.getline(charIgnore, 200, ',');
             //memset(char1, 0, strlen(char1)); //wiping username
             file.getline(char1, 281, '\n');
+
             //while (char1[0] == '\n'){
                 //file.getline(char1, 281, ' ');
             char charWords[strlen(char1)];
+            int j = 0;
 
 
             for (int i = 0; i < strlen(char1); i++) {
+
                 if (char1[i] == ' ') {
+                    charWords[j] = '\0'; //forcibly ending the c-string to avoid any weird outputs
                     DSString actualTweet(charWords);
                     words.push_back(actualTweet);
+                    memset(charWords, 0, strlen(charWords)); //reseting the c-string so there is no words left over
+                    j = 0; // pointing back to the beginning of the c-string so
+                          // the new word doesn't start part way through the string
+
                 }
-                else if (ispunct(char1[i])){ }
+                else if (ispunct(char1[i])){
+                    //charWords[i] = '0';
+                }
                 else {
                     char1[i] = tolower(char1[i]);
-                    charWords[i] = char1[i];
+                    charWords[j] = char1[i];
+                    j++;
                 }
             }
 
@@ -158,7 +169,7 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
             if (charS[0] == '4')
                 positive.append(tweet);
 
-            //memset(char1, 0, strlen(char1));
+            memset(char1, 0, strlen(char1));
             //memset(charS, 0, strlen(charS));
             //memset(charId, 0, strlen(charId));
         }
@@ -166,7 +177,7 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
         negative.display();
         cout << "Positive" << "\n \n \n" << endl;
         positive.display();
-    }
+    //}
     ofstream oFile (oFilePassed);
     oFile << "Test" << endl;
     oFile.close();

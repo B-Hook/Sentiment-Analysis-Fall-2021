@@ -4,7 +4,6 @@
 
 #ifndef MAIN_CPP_TWEET_H
 #define MAIN_CPP_TWEET_H
-#include <string>
 #include <iostream>
 #include <iomanip>
 #include <fstream>
