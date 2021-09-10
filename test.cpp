@@ -7,17 +7,17 @@
 
 TEST_CASE("Testing DSString")
 {
-    DSString a = DSString("1");
-    DSString b = DSString("Ten Char10");
-    DSString c = DSString("Multiple words/Actual Tweet");
-    DSString d = DSString("Ten Char10");
-    DSString e = DSString("UPPERCASE");
-    DSString f = DSString("uppercase");
-    DSString g = DSString("");
-    DSString h = DSString("\n");
-    DSString i = DSString("                    ");
-    DSString j = DSString ("aaaa");
-    DSString k = DSString ("bbbb");
+    DSString a = "1";
+    DSString b = "Ten Char10";
+    DSString c = "Multiple words/Actual Tweet";
+    DSString d = "Ten Char10";
+    DSString e = "UPPERCASE";
+    DSString f = "uppercase";
+    DSString g = "";
+    DSString h = "\n";
+    DSString i = "                    ";
+    DSString j = "aaaa";
+    DSString k = "bbbb";
     char char1 = 'y';
     char char2 = 'n';
     char char3 = ' ';
