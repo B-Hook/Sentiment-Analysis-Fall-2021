@@ -114,10 +114,10 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
         //cout << test << endl;
         //LinkedList list; //new LinkedList object is made
         //memset(char1, 0, strlen(char1));
-        while (!file.eof()) {
-        //while (count < 100) {
+        //while (!file.eof()) {
+        while (count < 100) {
             //vector <DSString> words;
-            //count++;
+            count++;
             if (type == 1){
                 file.getline(charS, 2, ',');
                 sVal.setData(charS);

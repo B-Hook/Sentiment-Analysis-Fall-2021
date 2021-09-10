@@ -81,6 +81,13 @@ TEST_CASE("Testing DSString")
         CHECK(c > g);
         CHECK(b > g);
     }
+    SECTION("Greater than operator DSString"){
+        CHECK(a < b);
+        CHECK(e < f);
+        CHECK(j < k);
+        CHECK(g < c);
+        CHECK(g < b);
+    }
     SECTION("Greater than operator Char"){
         CHECK(char1 > char2);
         CHECK(char6 > char7);
@@ -91,6 +98,13 @@ TEST_CASE("Testing DSString")
         CHECK(b[1] == 'e');
         CHECK(c[8] == ' ');
         CHECK(g[0] == 0);
+    }
+    SECTION("Set DSString data"){
+        DSString str;
+        str.setData("Hello");
+        str.c_str() == "Hello";
+        str.setData("123");
+        str.c_str() == "123";
     }
     SECTION("getLength function"){
         CHECK(d.getLength() == 10);
