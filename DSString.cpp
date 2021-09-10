@@ -116,6 +116,11 @@ char &DSString::operator[](const int index) {
     //}
 }
 
+void DSString::setData(const char *cStr){
+    this->data = new char[strlen(cStr) + 1];
+    strcpy(this->data, cStr);
+}
+
 int DSString::getLength() {
     return strlen(this->data);
 }

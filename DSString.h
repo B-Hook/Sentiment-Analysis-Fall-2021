@@ -76,6 +76,8 @@ public:
      */
     char& operator[] (const int);
 
+    void setData(const char*);
+
     /**
      * getLength() returns the number (count) of characters in the string.
      **/

@@ -1,9 +1,9 @@
 #include <iostream>
 #include <fstream>
 #include "DSString.h"
-#include "LinkedList.h"
+//#include "LinkedList.h"
 #include <map>
-#include "Tweet.h"
+//#include "Tweet.h"
 #define CATCH_CONFIG_RUNNER
 #include "catch.hpp"
 
@@ -21,6 +21,7 @@ int main(int argc, char** argv) {
 
     //if (file1.is_open()){
         controlCenter (argv[1], argv[4], 1);
+        //controlCenter
         /*char char1[500];
         char char2[1000];
         char char3[1000];
@@ -77,8 +78,10 @@ int main(int argc, char** argv) {
 
 void controlCenter (char* filePassed, char* oFilePassed, int type){
     Catch::Session().run();
+
     map<DSString, int> positive;
     map<DSString, int> negative;
+    DSString sVal;
     //LinkedList negative;
     //LinkedList positive;
     //vector <DSString> countWords;
@@ -115,8 +118,10 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
         //while (count < 100) {
             //vector <DSString> words;
             //count++;
-            file.getline(charS, 2, ',');
-            DSString sVal(charS);
+            if (type == 1){
+                file.getline(charS, 2, ',');
+                sVal.setData(charS);
+            }
             file.getline(charId, 11, ',');
             DSString id(charId);
             file.getline(charIgnore, 200, ',');
