@@ -8,6 +8,17 @@ Tweet::Tweet() {
     this->sVal = nullptr;
     this->id = nullptr;
     this->actualTweet;
+    this->word = nullptr;
+    this->count = nullptr;
+}
+
+Tweet::Tweet(DSString &word, int count) {
+    this->sVal = nullptr;
+    this->id = nullptr;
+    this->actualTweet;
+    this->word = new DSString(word);
+    this->count = new int(count);
+
 }
 
 /*Tweet::Tweet(DSString &val1 , DSString &val2) {
@@ -132,6 +143,23 @@ void Tweet::setActualTweet(vector<DSString> &actualTweet) {
 vector <DSString> Tweet::getActualTweet() {
     return actualTweet;
 }
+
+void Tweet::setWord(DSString &word) {
+    this->word = new DSString (word);
+}
+
+DSString Tweet::getWord() {
+    return *word;
+}
+
+void Tweet::setCount(int count) {
+    this->count = new int (count);
+}
+
+int Tweet::getCount() {
+    return *count;
+}
+
 
 /*bool Tweet::operator==(const Tweet &copy) {
     //bool check = false;

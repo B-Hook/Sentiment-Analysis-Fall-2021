@@ -78,7 +78,9 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
     Catch::Session().run();
     LinkedList negative;
     LinkedList positive;
-    vector <int> countWords;
+    vector <DSString> countWords;
+    vector <DSString> negWords;
+    vector <DSString> posWords;
     char char1[281];
     char charS[2];
     char charId[11];
@@ -109,7 +111,7 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
 
         //while (!file.eof()) {
         while (count < 30) {
-            vector <DSString> words;
+            //vector <DSString> words;
             count++;
             file.getline(charS, 2, ',');
             DSString sVal(charS);
@@ -132,13 +134,36 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
                 if (char1[i] == ' ') {
                     charWords[j] = '\0'; //forcibly ending the c-string to avoid any weird outputs
                     DSString actualTweet(charWords);
-                    for (int k = 0; k < words.size(); k++)
-                        if (actualTweet.c_str() == words.at(k).c_str()){
-                            if (id == "0"){
-                                
-                            }
+                    //for (int k = 0; k < words.size(); k++)
+                        //if (actualTweet.c_str() == words.at(k).c_str()){
+                            //break;
+                        //}
+                        //else if (id == "0"){
+
+                            //}
+                    if (id == "0"){
+                        //search - list for current word
+                        if (negative.search(actualTweet)){ }
+                        else{
+                            Tweet word(actualTweet, 1);
+                            negative.append(word);
                         }
-                    words.push_back(actualTweet);
+                        //if cannot find word, make word object with count of 1
+                        //if can find word, getCount from existing word, then set by ++
+                        //negWords.push_back(actualTweet);
+                    }
+                    else{
+                        //search - list for current word
+                        if (positive.search(actualTweet)){ }
+                        else{
+                            Tweet word(actualTweet, 1);
+                            positive.append(word);
+                        }
+                        //if cannot find word, make word object with count of 1
+                        //if can find word, getCount from existing word, then set by ++
+                        //posWords.push_back(actualTweet);
+                    }
+                    //words.push_back(actualTweet);
                     //This memset below is simply a precaution, not necessary as the charWords
                     //already is stopped due to the null allocated above
                     memset(charWords, 0, strlen(charWords)); //reseting the c-string so there is no words left over
@@ -167,7 +192,7 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
 
             tweet.setSVal(sVal);
             tweet.setId(id);
-            tweet.setActualTweet(words);
+            //tweet.setActualTweet(words);
 
 
             if (charS[0] == '0')

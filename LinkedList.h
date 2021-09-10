@@ -23,6 +23,7 @@ public:
     LinkedList& operator=(const LinkedList &copy); //copy assignment
     void append(Tweet); //append method
     void display(); //searches for transaction and prints it
+    bool search(DSString&);
 private: //private data members
     Node *head;
     Node *tail;

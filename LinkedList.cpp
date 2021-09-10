@@ -90,3 +90,19 @@ void LinkedList::display() {
         curr = curr->next; //goes to next node
     }
 }
+
+bool LinkedList::search(DSString &word) {
+    Node *curr = this->head;
+    //transversing through list
+    while (curr != nullptr) {
+        if(word == curr->data.getWord()) {
+            int count = curr->data.getCount() + 1; //adds 1 to the existing count for the word
+            curr->data.setCount(count);
+            return true;
+        }
+        //cout << endl;
+        curr = curr->next;
+    }
+
+        return false;
+}

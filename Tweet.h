@@ -17,6 +17,7 @@ class Tweet {
 
 public:
     Tweet(); // Default Constructor
+    Tweet(DSString&, int);
     //Tweet(DSString&, DSString&); // Whether a tweet is pos or neg and the ID (Test + sentiment)
     Tweet(DSString&, DSString&, vector<DSString>&); // Pos or Neg, ID, and actual tweet (train)
     // Rule of 3
@@ -32,10 +33,16 @@ public:
     DSString getId();
     void setActualTweet(vector<DSString>&);
     vector <DSString> getActualTweet();
+    void setWord(DSString&);
+    DSString getWord();
+    void setCount(int);
+    int getCount();
 
 private:
     DSString *sVal;
     DSString *id;
+    DSString *word;
+    int *count;
     vector <DSString> actualTweet;
 
 };
