@@ -30,96 +30,96 @@ TEST_CASE("Testing DSString")
 
 
     SECTION("Equality operators DSString"){
-        CHECK(a == DSString("1"));
-        CHECK(b == d);
-        CHECK(c == "Multiple words/Actual Tweet");
-        CHECK(!(e == f));
+        REQUIRE(a == DSString("1"));
+        REQUIRE(b == d);
+        REQUIRE(c == "Multiple words/Actual Tweet");
+        REQUIRE(!(e == f));
     }
     SECTION("Equality operators Char"){
-        CHECK(char1 == 'y');
-        CHECK(char1 == char6);
-        CHECK(char2 == b[2]);
-        CHECK(char3 == i[1]);
-        CHECK(char4 == h[0]);
-        CHECK(!(char5 == f[0]));
+        REQUIRE(char1 == 'y');
+        REQUIRE(char1 == char6);
+        REQUIRE(char2 == b[2]);
+        REQUIRE(char3 == i[1]);
+        REQUIRE(char4 == h[0]);
+        REQUIRE(!(char5 == f[0]));
     }
     SECTION("Assignment operators DSString"){
         DSString str;
         str = "1";
-        CHECK(str == a);
+        REQUIRE(str == a);
         str = DSString("Ten Char10");
-        CHECK(str == b);
+        REQUIRE(str == b);
         str = "";
-        CHECK(str == g);
+        REQUIRE(str == g);
         str = DSString("\n");
-        CHECK(str == h);
+        REQUIRE(str == h);
     }
     SECTION("Assignment operators Char"){
         char char8;
         char8 = '1';
-        CHECK(char8 == a[0]);
+        REQUIRE(char8 == a[0]);
         char8 = char('a');
-        CHECK(char8 == j[0]);
+        REQUIRE(char8 == j[0]);
         char8 = ' ';
-        CHECK(char8 == i[2]);
+        REQUIRE(char8 == i[2]);
         char8 = 'a';
-        CHECK(char8 == 'a');
+        REQUIRE(char8 == 'a');
         char8 = '\n';
-        CHECK(char8 == char4);
+        REQUIRE(char8 == char4);
     }
     SECTION("Addition operator DSString"){
-        CHECK(DSString("1Ten Char10") == a + b);
-        CHECK(g + g == "");
-        CHECK(g + h == DSString("\n"));
-        CHECK(a + b + c == "1Ten Char10Multiple words/Actual Tweet");
+        REQUIRE(DSString("1Ten Char10") == a + b);
+        REQUIRE(g + g == "");
+        REQUIRE(g + h == DSString("\n"));
+        REQUIRE(a + b + c == "1Ten Char10Multiple words/Actual Tweet");
     }
 
     SECTION("Greater than operator DSString"){
-        CHECK(b > a);
-        CHECK(f > e);
-        CHECK(k > j);
-        CHECK(c > g);
-        CHECK(b > g);
+        REQUIRE(b > a);
+        REQUIRE(f > e);
+        REQUIRE(k > j);
+        REQUIRE(c > g);
+        REQUIRE(b > g);
     }
     SECTION("Greater than operator DSString"){
-        CHECK(a < b);
-        CHECK(e < f);
-        CHECK(j < k);
-        CHECK(g < c);
-        CHECK(g < b);
+        REQUIRE(a < b);
+        REQUIRE(e < f);
+        REQUIRE(j < k);
+        REQUIRE(g < c);
+        REQUIRE(g < b);
     }
     SECTION("Greater than operator Char"){
-        CHECK(char1 > char2);
-        CHECK(char6 > char7);
-        CHECK(char2 > char7);
-        CHECK(char10 > char9);
+        REQUIRE(char1 > char2);
+        REQUIRE(char6 > char7);
+        REQUIRE(char2 > char7);
+        REQUIRE(char10 > char9);
     }
     SECTION("[] Operator"){
-        CHECK(b[1] == 'e');
-        CHECK(c[8] == ' ');
-        CHECK(g[0] == 0);
+        REQUIRE(b[1] == 'e');
+        REQUIRE(c[8] == ' ');
+        REQUIRE(g[0] == 0);
     }
     SECTION("Set DSString data"){
         DSString str;
         str.setData("Hello");
-        str.c_str() == "Hello";
+        REQUIRE(str == "Hello");
         str.setData("123");
-        str.c_str() == "123";
+        REQUIRE(str == "123");
     }
     SECTION("getLength function"){
-        CHECK(d.getLength() == 10);
-        CHECK(g.getLength() == 0);
-        CHECK(i.getLength() == 20);
-        CHECK(e.getLength() == 9);
+        REQUIRE(d.getLength() == 10);
+        REQUIRE(g.getLength() == 0);
+        REQUIRE(i.getLength() == 20);
+        REQUIRE(e.getLength() == 9);
     }
     SECTION("Substring function") {
-        CHECK(a.substring(0, 1) == "1");
-        CHECK(f.substring(0, 5) == "upper");
-        CHECK(f.substring(1, 6) == "pperca");
+        REQUIRE(a.substring(0, 1) == "1");
+        REQUIRE(f.substring(0, 5) == "upper");
+        REQUIRE(f.substring(1, 6) == "pperca");
     }
     SECTION("c_str function"){
-        CHECK(strcmp(b.c_str(), "Ten Char10") == 0);
-        CHECK(strcmp(d.c_str(), b.c_str()) == 0);
-        CHECK(strcmp(g.c_str(), "") == 0);
+        REQUIRE(strcmp(b.c_str(), "Ten Char10") == 0);
+        REQUIRE(strcmp(d.c_str(), b.c_str()) == 0);
+        REQUIRE(strcmp(g.c_str(), "") == 0);
     }
 }
