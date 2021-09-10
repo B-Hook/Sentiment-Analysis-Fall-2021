@@ -76,6 +76,50 @@ void LinkedList::append(Tweet tweet) {
     *length = *length + 1; // increase length by 1
 }
 
+void LinkedList::remove(DSString word) {
+    //if (this->head == nullptr) {
+     //   return;
+   // }
+    Node *curr = this->head;
+    Node *nextNode = curr;
+    while (curr != nullptr) {
+        if (curr->next->data.getWord() == word) {
+            /*if (curr == nullptr && this->head != nullptr) {
+                nextNode = this->head->next;
+                this->head = nextNode;
+
+                if (nextNode == nullptr) {
+                    this->tail = nullptr;
+                }
+            }*/
+            if (nextNode->next != nullptr) {
+                nextNode = curr->next->next;
+                curr->next = nextNode;
+
+                if (nextNode == nullptr) {
+                    this->tail = curr;
+                }
+            }
+        }
+        curr = curr->next;
+    }
+}
+    //transversing through list
+    /*while (curr != nullptr) {
+        if(word == curr->data.getWord()) {
+
+            Node *temp = curr;
+            curr = temp->next;
+            delete temp;
+
+            return;
+        }
+        //cout << endl;
+        curr = curr->next;
+    }
+
+}*/
+
 void LinkedList::display() {
     // implement search
     Node *curr = this->head;
@@ -105,4 +149,49 @@ bool LinkedList::search(DSString &word) {
     }
 
         return false;
+}
+
+int LinkedList::getSize() {
+    int count = 0;
+    Node *curr = this->head;
+    //transversing through list
+    while (curr != nullptr) {
+
+        count++;
+
+        curr = curr->next;
+    }
+
+    return count;
+}
+
+void LinkedList::remove1(LinkedList &positive) {
+
+    Node *negCurr = this->head;
+    //Node *negPrev = negCurr;
+    //Node *posCurr = positive.head;
+    //transversing through list
+    while (negCurr != nullptr) {
+        Node *posCurr = positive.head;
+        //Node *posPrev = posCurr;
+        while (posCurr != nullptr){
+            if (negCurr->data.getWord() == posCurr->data.getWord()){
+                if (negCurr->data.getCount() > posCurr->data.getCount() + 50){
+                    positive.remove(posCurr->data.getWord());
+                }
+                if (posCurr->data.getCount() > negCurr->data.getCount() + 50){
+                    this->remove(negCurr->data.getWord());
+                }
+                else{
+                    positive.remove(posCurr->data.getWord());
+                    this->remove(negCurr->data.getWord());
+                }
+                break;
+            }
+            //posPrev = posCurr;
+            posCurr = posCurr->next;
+        }
+        //negPrev = posCurr;
+        negCurr = negCurr->next;
+    }
 }

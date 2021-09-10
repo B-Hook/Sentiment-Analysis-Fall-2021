@@ -78,9 +78,9 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
     Catch::Session().run();
     LinkedList negative;
     LinkedList positive;
-    vector <DSString> countWords;
-    vector <DSString> negWords;
-    vector <DSString> posWords;
+    //vector <DSString> countWords;
+    //vector <Tweet> negative;
+    //vector <Tweet> positive;
     char char1[281];
     char charS[2];
     char charId[11];
@@ -139,29 +139,31 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
                             //break;
                         //}
                         //else if (id == "0"){
+                        //}
 
-                            //}
-                    if (sVal[0] == '0'){
-                        //search - list for current word
-                        if (negative.search(actualTweet)){ }
-                        else{
-                            Tweet word(actualTweet, 1);
-                            negative.append(word);
+                    if (actualTweet.getLength() > 1) {
+
+                        if (sVal[0] == '0') {
+                            //search - list for current word
+                            if (negative.search(actualTweet)) {}
+                            else {
+                                Tweet word(actualTweet, 1);
+                                negative.append(word);
+                            }
+                            //if cannot find word, make word object with count of 1
+                            //if can find word, getCount from existing word, then set by ++
+                            //negWords.push_back(actualTweet);
+                        } else {
+                            //search - list for current word
+                            if (positive.search(actualTweet)) {}
+                            else {
+                                Tweet word(actualTweet, 1);
+                                positive.append(word);
+                            }
+                            //if cannot find word, make word object with count of 1
+                            //if can find word, getCount from existing word, then set by ++
+                            //posWords.push_back(actualTweet);
                         }
-                        //if cannot find word, make word object with count of 1
-                        //if can find word, getCount from existing word, then set by ++
-                        //negWords.push_back(actualTweet);
-                    }
-                    else{
-                        //search - list for current word
-                        if (positive.search(actualTweet)){ }
-                        else{
-                            Tweet word(actualTweet, 1);
-                            positive.append(word);
-                        }
-                        //if cannot find word, make word object with count of 1
-                        //if can find word, getCount from existing word, then set by ++
-                        //posWords.push_back(actualTweet);
                     }
                     //words.push_back(actualTweet);
                     //This memset below is simply a precaution, not necessary as the charWords
@@ -205,13 +207,20 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
             //memset(charId, 0, strlen(charId));
             //int f = 0;
         }
+    negative.remove1(positive);
         cout << "Negative" << "\n \n \n" << endl;
         negative.display();
         cout << "Positive" << "\n \n \n" << endl;
         positive.display();
     //}
 
+    //negative.remove1(positive);
 
+    //for (int i = 0; i < negative.getSize(); i++) {
+
+
+
+    //}
 
 
 
