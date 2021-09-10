@@ -13,14 +13,19 @@ void controlCenter (char*, char*, int);
 
 int main(int argc, char** argv) {
 
-    for(int i = 0; i < argc; i++){
-        cout <<"argv["<< i << "]: " << argv[i] << endl;
-    }
+    //for(int i = 0; i < argc; i++){
+        //cout <<"argv["<< i << "]: " << argv[i] << endl;
+    //}
 
     //ifstream file1 (argv[1]);
 
+    if (argc = 1){
+        Catch::Session().run();
+    }
     //if (file1.is_open()){
-        controlCenter (argv[1], argv[4], 1);
+    else {
+        controlCenter(argv[1], argv[4], 1);
+    }
         //controlCenter
         /*char char1[500];
         char char2[1000];
@@ -77,7 +82,6 @@ int main(int argc, char** argv) {
 }
 
 void controlCenter (char* filePassed, char* oFilePassed, int type){
-    Catch::Session().run();
 
     map<DSString, int> positive;
     map<DSString, int> negative;
