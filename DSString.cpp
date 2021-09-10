@@ -130,6 +130,7 @@ DSString DSString::substring(int start, int numChars) {
     DSString newObj;
     newObj.data = new char [numChars + 1];
     strncpy(newObj.data, this->data + start, numChars);
+    newObj.data[numChars+1] = '\0';
     return newObj;
 }
 
