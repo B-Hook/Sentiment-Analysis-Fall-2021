@@ -164,7 +164,7 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
                             //if cannot find word, make word object with count of 1
                             //if can find word, getCount from existing word, then set by ++
                             //negWords.push_back(actualTweet);
-                            cout << "negative : " << actualTweet << " : " << negative.at(actualTweet) << endl;
+                            //cout << "negative : " << actualTweet << " : " << negative.at(actualTweet) << endl;
                         } else {
                             //search - list for current word
                             if (positive.count(actualTweet) == 0) {
@@ -176,7 +176,7 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
                             //if cannot find word, make word object with count of 1
                             //if can find word, getCount from existing word, then set by ++
                             //posWords.push_back(actualTweet);
-                            cout << "positive : " << actualTweet << " : " << positive.at(actualTweet) << endl;
+                            //cout << "positive : " << actualTweet << " : " << positive.at(actualTweet) << endl;
                         }
                     }
                     //words.push_back(actualTweet);
