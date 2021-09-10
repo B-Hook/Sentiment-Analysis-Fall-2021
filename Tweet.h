@@ -19,7 +19,7 @@ public:
     Tweet(); // Default Constructor
     Tweet(DSString&, int);
     //Tweet(DSString&, DSString&); // Whether a tweet is pos or neg and the ID (Test + sentiment)
-    Tweet(DSString&, DSString&, vector<DSString>&); // Pos or Neg, ID, and actual tweet (train)
+    //Tweet(DSString&, DSString&, vector<DSString>&); // Pos or Neg, ID, and actual tweet (train)
     // Rule of 3
     Tweet(const Tweet &copy);
     Tweet& operator=(const Tweet &copy);
@@ -27,23 +27,23 @@ public:
     ~Tweet();
     void display(int);
     // Getters and Setters
-    void setSVal(DSString&);
+    /*void setSVal(DSString&);
     DSString getSVal();
     void setId(DSString&);
     DSString getId();
     void setActualTweet(vector<DSString>&);
-    vector <DSString> getActualTweet();
+    vector <DSString> getActualTweet();*/
     void setWord(DSString&);
     DSString getWord();
     void setCount(int);
     int getCount();
 
 private:
-    DSString *sVal;
-    DSString *id;
+    //DSString *sVal;
+    //DSString *id;
     DSString *word;
     int *count;
-    vector <DSString> actualTweet;
+    //vector <DSString> actualTweet;
 
 };
 

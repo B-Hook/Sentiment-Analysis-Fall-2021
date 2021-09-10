@@ -141,7 +141,7 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
                         //else if (id == "0"){
 
                             //}
-                    if (id == "0"){
+                    if (sVal[0] == '0'){
                         //search - list for current word
                         if (negative.search(actualTweet)){ }
                         else{
@@ -185,20 +185,20 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
 
             //cout << endl;
             //DSString actualTweet(char1);
-            Tweet tweet;
+            //Tweet tweet;
             //Tweet tweet (sVal, id, words);
             //Tweet tweet (sVal, actualTweet);
 
 
-            tweet.setSVal(sVal);
-            tweet.setId(id);
+            //tweet.setSVal(sVal);
+            //tweet.setId(id);
             //tweet.setActualTweet(words);
 
 
-            if (charS[0] == '0')
-                negative.append(tweet);
-            if (charS[0] == '4')
-                positive.append(tweet);
+            //if (charS[0] == '0')
+                //negative.append(tweet);
+            //if (charS[0] == '4')
+                //positive.append(tweet);
 
             //memset(char1, 0, strlen(char1));
             //memset(charS, 0, strlen(charS));
