@@ -22,11 +22,11 @@ public:
     LinkedList(const LinkedList &copy); //copy constructor
     LinkedList& operator=(const LinkedList &copy); //copy assignment
     void append(Tweet); //append method
-    void remove(DSString);
+    //void remove(DSString);
     void display(); //searches for transaction and prints it
     bool search(DSString&);
     int getSize();
-    void remove1(LinkedList &positive);
+    //void remove1(LinkedList &positive);
 private: //private data members
     Node *head;
     Node *tail;

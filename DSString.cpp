@@ -93,6 +93,15 @@ bool DSString::operator>(const DSString &c) const{
         return false;
 }
 
+bool DSString::operator<(const DSString &c) const{
+    int a = strcmp(this->data, c.data);
+    if (a < 0)
+        return true;
+    else
+        return false;
+}
+
+
 bool DSString::operator>(const char *c) const{
     int a = strcmp(this->data, c);
     if (a > 0)

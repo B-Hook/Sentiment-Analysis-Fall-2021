@@ -2,6 +2,7 @@
 #include <fstream>
 #include "DSString.h"
 #include "LinkedList.h"
+#include <map>
 #include "Tweet.h"
 #define CATCH_CONFIG_RUNNER
 #include "catch.hpp"
@@ -76,8 +77,10 @@ int main(int argc, char** argv) {
 
 void controlCenter (char* filePassed, char* oFilePassed, int type){
     Catch::Session().run();
-    LinkedList negative;
-    LinkedList positive;
+    map<DSString, int> positive;
+    map<DSString, int> negative;
+    //LinkedList negative;
+    //LinkedList positive;
     //vector <DSString> countWords;
     //vector <Tweet> negative;
     //vector <Tweet> positive;
@@ -108,11 +111,10 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
         //cout << test << endl;
         //LinkedList list; //new LinkedList object is made
         //memset(char1, 0, strlen(char1));
-
-        //while (!file.eof()) {
-        while (count < 30) {
+        while (!file.eof()) {
+        //while (count < 100) {
             //vector <DSString> words;
-            count++;
+            //count++;
             file.getline(charS, 2, ',');
             DSString sVal(charS);
             file.getline(charId, 11, ',');
@@ -145,24 +147,31 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
 
                         if (sVal[0] == '0') {
                             //search - list for current word
-                            if (negative.search(actualTweet)) {}
+                            //if (negative.search(actualTweet)) {}
+                            if (negative.count(actualTweet) == 0) {
+                                negative.emplace(actualTweet, 1);
+                            }
                             else {
-                                Tweet word(actualTweet, 1);
-                                negative.append(word);
+                                //Tweet word(actualTweet, 1);
+                                //negative.append(word);
+                                negative.at(actualTweet)++;
                             }
                             //if cannot find word, make word object with count of 1
                             //if can find word, getCount from existing word, then set by ++
                             //negWords.push_back(actualTweet);
+                            cout << "negative : " << actualTweet << " : " << negative.at(actualTweet) << endl;
                         } else {
                             //search - list for current word
-                            if (positive.search(actualTweet)) {}
+                            if (positive.count(actualTweet) == 0) {
+                                positive.emplace(actualTweet, 1);
+                            }
                             else {
-                                Tweet word(actualTweet, 1);
-                                positive.append(word);
+                                positive.at(actualTweet)++;
                             }
                             //if cannot find word, make word object with count of 1
                             //if can find word, getCount from existing word, then set by ++
                             //posWords.push_back(actualTweet);
+                            cout << "positive : " << actualTweet << " : " << positive.at(actualTweet) << endl;
                         }
                     }
                     //words.push_back(actualTweet);
@@ -171,6 +180,7 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
                     memset(charWords, 0, strlen(charWords)); //reseting the c-string so there is no words left over
                     j = 0; // pointing back to the beginning of the c-string so
                         // the new word doesn't start part way through the string
+
 
                 } //else if (ispunct(char1[i])) {
                 //charWords[i] = '0';}
@@ -213,12 +223,14 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
 //        cout << "Positive" << "\n \n \n" << endl;
 //        positive.display();
 
-    negative.remove1(positive);
-    cout << "Negative" << "\n \n \n" << endl;
+
+
+    //negative.remove1(positive);
+    /*cout << "Negative" << "\n \n \n" << endl;
     negative.display();
     cout << "Positive" << "\n \n \n" << endl;
     positive.display();
-    //}
+    //}*/
 
     //negative.remove1(positive);
 

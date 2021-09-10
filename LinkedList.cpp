@@ -76,29 +76,29 @@ void LinkedList::append(Tweet tweet) {
     *length = *length + 1; // increase length by 1
 }
 
-void LinkedList::remove(DSString word) {
+/*void LinkedList::remove(DSString word) {
     Node* temp = this->head;
-    Node* prev = NULL;
+    Node* prev = nullptr;
 
-    if (temp != NULL && temp->data.getWord() == word) {
+    if (temp != nullptr && temp->data.getWord() == word) {
         this->head = temp->next;
         delete temp;
         return;
     }
     else {
-        while (temp != NULL && temp->data.getWord() != word) {
+        while (temp != nullptr && temp->data.getWord() != word) {
             prev = temp;
             temp = temp->next;
         }
 
-        if (temp == NULL)
+        if (temp == nullptr)
             return;
 
         prev->next = temp->next;
 
         delete temp;
     }
-}
+}*/
 void LinkedList::display() {
     // implement search
     Node *curr = this->head;
@@ -144,7 +144,7 @@ int LinkedList::getSize() {
     return count;
 }
 
-void LinkedList::remove1(LinkedList &positive) {
+/*void LinkedList::remove1(LinkedList &positive) {
 
     Node *negCurr = this->head;
     //Node *negPrev = negCurr;
@@ -165,7 +165,7 @@ void LinkedList::remove1(LinkedList &positive) {
                     positive.remove(posCurr->data.getWord());
                     this->remove(negCurr->data.getWord());
                 }
-                break;
+                //break;
             }
             //posPrev = posCurr;
             posCurr = posCurr->next;
@@ -173,4 +173,4 @@ void LinkedList::remove1(LinkedList &positive) {
         //negPrev = negCurr;
         negCurr = negCurr->next;
     }
-}
+}*/
