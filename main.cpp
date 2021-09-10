@@ -78,11 +78,12 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
     Catch::Session().run();
     LinkedList negative;
     LinkedList positive;
+    vector <int> countWords;
     char char1[281];
     char charS[2];
     char charId[11];
     char charIgnore[200];
-    //char charTest [2]= "\n";
+    //char* charType [2]= "4";
     int count = 0;
     ifstream file (filePassed);
 
@@ -124,14 +125,22 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
 
             //while (char1[0] == '\n'){
                 //file.getline(char1, 281, ' ');
-            char charWords[strlen(char1)];
+            char charWords[strlen(char1) + 1];
             int j = 0;
 
             for (int i = 0; i < strlen(char1); i++) {
                 if (char1[i] == ' ') {
                     charWords[j] = '\0'; //forcibly ending the c-string to avoid any weird outputs
                     DSString actualTweet(charWords);
+                    for (int k = 0; k < words.size(); k++)
+                        if (actualTweet.c_str() == words.at(k).c_str()){
+                            if (id == "0"){
+                                
+                            }
+                        }
                     words.push_back(actualTweet);
+                    //This memset below is simply a precaution, not necessary as the charWords
+                    //already is stopped due to the null allocated above
                     memset(charWords, 0, strlen(charWords)); //reseting the c-string so there is no words left over
                     j = 0; // pointing back to the beginning of the c-string so
                         // the new word doesn't start part way through the string
@@ -145,11 +154,11 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
                 }
             }
 
-            for (int i = 0; i < words.size(); i++){
-                cout << words.at(i) << " ";
-            }
+            //for (int i = 0; i < words.size(); i++){
+              //  cout << words.at(i) << " ";
+            //}
 
-            cout << endl;
+            //cout << endl;
             //DSString actualTweet(char1);
             Tweet tweet;
             //Tweet tweet (sVal, id, words);
@@ -176,6 +185,12 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
         cout << "Positive" << "\n \n \n" << endl;
         positive.display();
     //}
+
+
+
+
+
+
     ofstream oFile (oFilePassed);
     oFile << "Test" << endl;
     oFile.close();

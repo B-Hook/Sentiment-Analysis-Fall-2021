@@ -7,7 +7,7 @@
 Tweet::Tweet() {
     this->sVal = nullptr;
     this->id = nullptr;
-    this->actualTweet ;
+    this->actualTweet;
 }
 
 /*Tweet::Tweet(DSString &val1 , DSString &val2) {
