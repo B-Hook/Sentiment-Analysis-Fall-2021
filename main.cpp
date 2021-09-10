@@ -127,22 +127,18 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
             char charWords[strlen(char1)];
             int j = 0;
 
-
             for (int i = 0; i < strlen(char1); i++) {
-
                 if (char1[i] == ' ') {
                     charWords[j] = '\0'; //forcibly ending the c-string to avoid any weird outputs
                     DSString actualTweet(charWords);
                     words.push_back(actualTweet);
                     memset(charWords, 0, strlen(charWords)); //reseting the c-string so there is no words left over
                     j = 0; // pointing back to the beginning of the c-string so
-                          // the new word doesn't start part way through the string
+                        // the new word doesn't start part way through the string
 
-                }
-                else if (ispunct(char1[i])){
-                    //charWords[i] = '0';
-                }
-                else {
+                } //else if (ispunct(char1[i])) {
+                //charWords[i] = '0';}
+                if (isalpha(char1[i])) {
                     char1[i] = tolower(char1[i]);
                     charWords[j] = char1[i];
                     j++;
