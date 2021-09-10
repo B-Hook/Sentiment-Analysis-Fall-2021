@@ -19,7 +19,7 @@ int main(int argc, char** argv) {
 
     //ifstream file1 (argv[1]);
 
-    if (argc = 1){
+    if (argc == 1){
         Catch::Session().run();
     }
     //if (file1.is_open()){
@@ -248,9 +248,6 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
 
 
     //}
-
-
-
 
     ofstream oFile (oFilePassed);
     oFile << "Test" << endl;
