@@ -107,7 +107,7 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
         //memset(char1, 0, strlen(char1));
 
         //while (!file.eof()) {
-        while (count < 15) {
+        while (count < 30) {
             vector <DSString> words;
             count++;
             file.getline(charS, 2, ',');
@@ -150,12 +150,13 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
             }
 
             for (int i = 0; i < words.size(); i++){
-                cout << words.at(i) << "    ";
+                cout << words.at(i) << " ";
             }
 
             cout << endl;
             //DSString actualTweet(char1);
             Tweet tweet;
+            //Tweet tweet (sVal, id, words);
             //Tweet tweet (sVal, actualTweet);
 
 
@@ -169,9 +170,10 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
             if (charS[0] == '4')
                 positive.append(tweet);
 
-            memset(char1, 0, strlen(char1));
+            //memset(char1, 0, strlen(char1));
             //memset(charS, 0, strlen(charS));
             //memset(charId, 0, strlen(charId));
+            //int f = 0;
         }
         cout << "Negative" << "\n \n \n" << endl;
         negative.display();

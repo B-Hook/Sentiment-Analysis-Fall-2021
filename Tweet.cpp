@@ -45,10 +45,11 @@ Tweet::Tweet() {
 
 }*/
 
-Tweet::Tweet(DSString &sVal, DSString &id, DSString &actualTweet) {
+Tweet::Tweet(DSString &sVal, DSString &id, vector <DSString> &actualTweet) {
 
     this->sVal = new DSString (sVal);
     this->id =  new DSString (id);
+    this->actualTweet = actualTweet;
     //this->actualTweet = new DSString (actualTweet);
 
 }
@@ -66,7 +67,7 @@ Tweet::Tweet(const Tweet &copy) {
     //this->id = copy.id;
     //if (copy.actualTweet != nullptr) {
         //this->actualTweet = new DSString();
-        //*actualTweet = *(copy.actualTweet);
+        actualTweet = copy.actualTweet;
     //}
     //this->actualTweet = copy.actualTweet;
 }
@@ -93,7 +94,7 @@ Tweet &Tweet::operator=(const Tweet &copy) {
         //if (copy.actualTweet != nullptr) {
             //delete actualTweet;
             //this->actualTweet = new DSString();
-            //*actualTweet = *(copy.actualTweet);
+            actualTweet = copy.actualTweet;
         //}
         //this->actualTweet = copy.actualTweet;
     }
