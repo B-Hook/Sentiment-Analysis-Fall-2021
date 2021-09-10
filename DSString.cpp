@@ -129,7 +129,7 @@ DSString DSString::substring(int start, int numChars) {
 
     DSString newObj;
     newObj.data = new char [numChars + 1];
-    memcpy(newObj.data, this->data + start, numChars);
+    strncpy(newObj.data, this->data + start, numChars);
     return newObj;
 }
 
