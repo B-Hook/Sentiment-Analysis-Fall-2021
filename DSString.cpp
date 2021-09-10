@@ -77,6 +77,13 @@ bool DSString::operator==(const DSString &c) const{
     else
         return false;
 }
+bool DSString::operator!=(const DSString &c) const{
+    int a = strcmp(this->data, c.data);
+    if (a != 0)
+        return true;
+    else
+        return false;
+}
 
 bool DSString::operator>(const DSString &c) const{
     int a = strcmp(this->data, c.data);

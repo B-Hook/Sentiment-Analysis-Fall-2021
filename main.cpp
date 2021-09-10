@@ -207,11 +207,17 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
             //memset(charId, 0, strlen(charId));
             //int f = 0;
         }
+    //negative.remove1(positive);
+//        cout << "Negative" << "\n \n \n" << endl;
+//        negative.display();
+//        cout << "Positive" << "\n \n \n" << endl;
+//        positive.display();
+
     negative.remove1(positive);
-        cout << "Negative" << "\n \n \n" << endl;
-        negative.display();
-        cout << "Positive" << "\n \n \n" << endl;
-        positive.display();
+    cout << "Negative" << "\n \n \n" << endl;
+    negative.display();
+    cout << "Positive" << "\n \n \n" << endl;
+    positive.display();
     //}
 
     //negative.remove1(positive);

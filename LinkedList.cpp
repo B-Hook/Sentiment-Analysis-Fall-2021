@@ -77,49 +77,28 @@ void LinkedList::append(Tweet tweet) {
 }
 
 void LinkedList::remove(DSString word) {
-    //if (this->head == nullptr) {
-     //   return;
-   // }
-    Node *curr = this->head;
-    Node *nextNode = curr;
-    while (curr != nullptr) {
-        if (curr->next->data.getWord() == word) {
-            /*if (curr == nullptr && this->head != nullptr) {
-                nextNode = this->head->next;
-                this->head = nextNode;
+    Node* temp = this->head;
+    Node* prev = NULL;
 
-                if (nextNode == nullptr) {
-                    this->tail = nullptr;
-                }
-            }*/
-            if (nextNode->next != nullptr) {
-                nextNode = curr->next->next;
-                curr->next = nextNode;
-
-                if (nextNode == nullptr) {
-                    this->tail = curr;
-                }
-            }
+    if (temp != NULL && temp->data.getWord() == word) {
+        this->head = temp->next;
+        delete temp;
+        return;
+    }
+    else {
+        while (temp != NULL && temp->data.getWord() != word) {
+            prev = temp;
+            temp = temp->next;
         }
-        curr = curr->next;
+
+        if (temp == NULL)
+            return;
+
+        prev->next = temp->next;
+
+        delete temp;
     }
 }
-    //transversing through list
-    /*while (curr != nullptr) {
-        if(word == curr->data.getWord()) {
-
-            Node *temp = curr;
-            curr = temp->next;
-            delete temp;
-
-            return;
-        }
-        //cout << endl;
-        curr = curr->next;
-    }
-
-}*/
-
 void LinkedList::display() {
     // implement search
     Node *curr = this->head;
@@ -191,7 +170,7 @@ void LinkedList::remove1(LinkedList &positive) {
             //posPrev = posCurr;
             posCurr = posCurr->next;
         }
-        //negPrev = posCurr;
+        //negPrev = negCurr;
         negCurr = negCurr->next;
     }
 }

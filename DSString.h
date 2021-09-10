@@ -65,6 +65,7 @@ public:
 
     bool operator== (const char*) const;
     bool operator== (const DSString&) const;
+    bool operator!=(const DSString &) const;
     bool operator> (const DSString&) const;
     bool operator> (const char*) const;
 
