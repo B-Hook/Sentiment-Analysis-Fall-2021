@@ -9,7 +9,8 @@
 
 using namespace std;
 
-void controlCenter (char*, char*, int);
+vector <map<DSString, int>>& controlCenter (char*, char*, int);
+map <DSString, DSString>& test (vector <map<DSString, int>>&, char*, int);
 
 int main(int argc, char** argv) {
 
@@ -20,11 +21,13 @@ int main(int argc, char** argv) {
     //ifstream file1 (argv[1]);
 
     if (argc == 1){
-        Catch::Session().run();
+        Catch::Session().run(); // TODO: Make this into it's own function i.e void runCatch();
     }
     //if (file1.is_open()){
     else {
-        controlCenter(argv[1], argv[4], 1);
+        vector <map<DSString, int>> maps = controlCenter(argv[1], argv[4], 1);
+        map <DSString, DSString> testMap = test(maps, argv[2], 2);
+
     }
         //controlCenter
         /*char char1[500];
@@ -81,11 +84,14 @@ int main(int argc, char** argv) {
     return 0;
 }
 
-void controlCenter (char* filePassed, char* oFilePassed, int type){
+vector <map<DSString, int>>& controlCenter (char* filePassed, char* oFilePassed, int type){
 
     map<DSString, int> positive;
     map<DSString, int> negative;
     DSString sVal;
+//    vector <map<DSString, int>> maps {negative, positive};
+    //map<DSString, int>::iterator it = positive.begin();
+    //it->first;
     //LinkedList negative;
     //LinkedList positive;
     //vector <DSString> countWords;
@@ -101,16 +107,16 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
 
     //if (file.is_open()) {
 
-        file.getline(charIgnore, 281, ',');
-        cout << charIgnore << endl;
-        file.getline(charIgnore, 281, ',');
-        cout << charIgnore << endl;
-        file.getline(charIgnore, 281, ',');
-        cout << charIgnore << endl;
-        file.getline(charIgnore, 281, ',');
-        cout << charIgnore << endl;
-        file.getline(charIgnore, 281, ',');
-        cout << charIgnore << endl;
+//        file.getline(charIgnore, 281, ',');
+//        cout << charIgnore << endl;
+//        file.getline(charIgnore, 281, ',');
+//        cout << charIgnore << endl;
+//        file.getline(charIgnore, 281, ',');
+//        cout << charIgnore << endl;
+//        file.getline(charIgnore, 281, ',');
+//        cout << charIgnore << endl;
+//        file.getline(charIgnore, 281, ',');
+//        cout << charIgnore << endl;
         file.getline(charIgnore, 281, '\n');
         cout << charIgnore << endl;
         //DSString test (char1);
@@ -118,10 +124,10 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
         //cout << test << endl;
         //LinkedList list; //new LinkedList object is made
         //memset(char1, 0, strlen(char1));
-        while (!file.eof()) {
-        //while (count < 100) {
+        //while (!file.eof()) {
+        while (count < 30) {
             //vector <DSString> words;
-            //count++;
+            count++;
             if (type == 1){
                 file.getline(charS, 2, ',');
                 sVal.setData(charS);
@@ -168,7 +174,7 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
                             //if cannot find word, make word object with count of 1
                             //if can find word, getCount from existing word, then set by ++
                             //negWords.push_back(actualTweet);
-                            //cout << "negative : " << actualTweet << " : " << negative.at(actualTweet) << endl;
+                            //cout << "negative : " << actualTweet << " : " << maps.at(0).at(actualTweet) << endl;
                         } else {
                             //search - list for current word
                             if (positive.count(actualTweet) == 0) {
@@ -180,7 +186,7 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
                             //if cannot find word, make word object with count of 1
                             //if can find word, getCount from existing word, then set by ++
                             //posWords.push_back(actualTweet);
-                            //cout << "positive : " << actualTweet << " : " << positive.at(actualTweet) << endl;
+                            //cout << "positive : " << actualTweet << " : " << maps.at(1).at(actualTweet) << endl;
                         }
                     }
                     //words.push_back(actualTweet);
@@ -226,6 +232,7 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
             //memset(charId, 0, strlen(charId));
             //int f = 0;
         }
+    vector <map<DSString, int>> maps {negative, positive};
     //negative.remove1(positive);
 //        cout << "Negative" << "\n \n \n" << endl;
 //        negative.display();
@@ -252,4 +259,38 @@ void controlCenter (char* filePassed, char* oFilePassed, int type){
     ofstream oFile (oFilePassed);
     oFile << "Test" << endl;
     oFile.close();
+
+    return maps;
+}
+
+map <DSString, DSString>& test (vector <map<DSString, int>>& trainMaps, char* filePassed, int type){
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
