@@ -43,7 +43,7 @@ void Control::controlCenter (char* filePassed, char* oFilePassed, int type) {
                 charWords[j] = '\0'; //forcibly ending the c-string to avoid any weird outputs
                 DSString actualTweet(charWords);
 
-                if (actualTweet.getLength() > 1) {
+                if (actualTweet.getLength() > 2) {
 
                     if (sVal[0] == '0') {
                         //search - list for current word
