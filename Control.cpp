@@ -190,7 +190,8 @@ void Control::controlCenter (char* filePassed, char* oFilePassed, int type) {
 
 void Control::testFile(char *filePassed, int type) {
     //map<DSString, int> tweetS;
-    DSString sVal;
+    DSString negSVal = "0";
+    DSString posSVal = "4";
     char char1[281];
     char charS[2];
     char charId[11];
@@ -204,10 +205,10 @@ void Control::testFile(char *filePassed, int type) {
         //vector <DSString> words;
         int countS = 0;
         count++;
-        if (type == 1) {
+        /*if (type == 1) {
             file.getline(charS, 2, ',');
             sVal.setData(charS);
-        }
+        }*/
         file.getline(charId, 11, ',');
         DSString id(charId);
         file.getline(charIgnore, 200, ',');
@@ -241,7 +242,12 @@ void Control::testFile(char *filePassed, int type) {
                 j++;
             }
         }
-        tweetS.emplace(id, countS);
+        if (countS > 0) {
+            tweetS.emplace(id, posSVal);
+        }
+        else{
+            tweetS.emplace(id, negSVal);
+        }
         cout << id << " : " << tweetS.at(id) << endl;
     }
 }

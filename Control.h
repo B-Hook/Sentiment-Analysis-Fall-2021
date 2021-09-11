@@ -26,7 +26,7 @@ private:
     //int count;
     //map<DSString, int> negative;
     vector <map<DSString, int>> maps;
-    map <DSString, int> tweetS;
+    map <DSString, DSString> tweetS;
 };
 
 
