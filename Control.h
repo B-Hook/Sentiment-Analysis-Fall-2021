@@ -8,6 +8,7 @@
 
 #include "DSString.h"
 #include <fstream>
+#include <iomanip>
 #include <map>
 #include <vector>
 using namespace std;
