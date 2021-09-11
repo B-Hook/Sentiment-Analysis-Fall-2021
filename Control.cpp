@@ -203,7 +203,7 @@ void Control::testFile(char *filePassed, int type) {
     file.getline(charIgnore, 200, '\n');
     cout << charIgnore << endl;
 
-    while (count < 200) {
+    while (!file.eof()) {
         //vector <DSString> words;
         int countS = 0;
         count++;
@@ -276,7 +276,7 @@ void Control::testSVal(char *sFile, char *oFile) {
     file.getline(charIgnore, 20, '\n');
     cout << charIgnore << endl;
 
-    while (count < 200){
+    while (!file.eof()){
         count ++;
         file.getline(charS, 2, ',');
         DSString sVal(charS);
@@ -293,7 +293,7 @@ void Control::testSVal(char *sFile, char *oFile) {
     }
     ofstream output (oFile);
 
-    output << fixed << setprecision(3) << amountRight/200 << endl;
+    output << fixed << setprecision(3) << amountRight/10000 << endl;
 
     for (int i = 0; i < incorrectTweets.size(); i++){
         output << incorrectTweets.at(i) << " (" << i << ")" << endl;
