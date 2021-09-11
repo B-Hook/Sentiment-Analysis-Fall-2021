@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include "Control.h"
 #include "DSString.h"
 //#include "LinkedList.h"
 #include <map>
@@ -9,14 +10,15 @@
 
 using namespace std;
 
-vector <map<DSString, int>>& controlCenter (char*, char*, int);
-map <DSString, DSString>& test (vector <map<DSString, int>>&, char*, int);
+//vector <map<DSString, int>>& controlCenter (char*, char*, int);
+//map <DSString, DSString>& test (vector <map<DSString, int>>&, char*, int);
+
 
 int main(int argc, char** argv) {
 
-    //for(int i = 0; i < argc; i++){
-        //cout <<"argv["<< i << "]: " << argv[i] << endl;
-    //}
+    for(int i = 0; i < argc; i++){
+        cout <<"argv["<< i << "]: " << argv[i] << endl;
+    }
 
     //ifstream file1 (argv[1]);
 
@@ -25,8 +27,11 @@ int main(int argc, char** argv) {
     }
     //if (file1.is_open()){
     else {
-        vector <map<DSString, int>> maps = controlCenter(argv[1], argv[4], 1);
-        map <DSString, DSString> testMap = test(maps, argv[2], 2);
+        Control starterObj;
+        starterObj.controlCenter(argv[1], argv[4], 1);
+        cout << "Size: " << starterObj.getVectorOfMap().size() << endl;
+        //vector <map<DSString, int>> maps = controlCenter(argv[1], argv[4], 1);
+        //map <DSString, DSString> testMap = test(maps, argv[2], 2);
 
     }
         //controlCenter
@@ -84,7 +89,7 @@ int main(int argc, char** argv) {
     return 0;
 }
 
-vector <map<DSString, int>>& controlCenter (char* filePassed, char* oFilePassed, int type){
+/*vector <map<DSString, int>>& controlCenter (char* filePassed, char* oFilePassed, int type){
 
     map<DSString, int> positive;
     map<DSString, int> negative;
@@ -246,7 +251,7 @@ vector <map<DSString, int>>& controlCenter (char* filePassed, char* oFilePassed,
     negative.display();
     cout << "Positive" << "\n \n \n" << endl;
     positive.display();
-    //}*/
+    //}
 
     //negative.remove1(positive);
 
@@ -262,15 +267,13 @@ vector <map<DSString, int>>& controlCenter (char* filePassed, char* oFilePassed,
 
     return maps;
 }
+*/
+//map <DSString, DSString>& test (vector <map<DSString, int>>& trainMaps, char* filePassed, int type){
 
-map <DSString, DSString>& test (vector <map<DSString, int>>& trainMaps, char* filePassed, int type){
-
-
-
-
+    //ifstream file (filePassed);
 
 
-
+    //map <DSString, DSString> map;
 
 
 
@@ -293,4 +296,7 @@ map <DSString, DSString>& test (vector <map<DSString, int>>& trainMaps, char* fi
 
 
 
-}
+    //return map;
+
+
+//}

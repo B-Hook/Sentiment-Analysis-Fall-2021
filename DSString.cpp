@@ -94,6 +94,7 @@ bool DSString::operator>(const DSString &c) const{
 }
 
 bool DSString::operator<(const DSString &c) const{
+
     int a = strcmp(this->data, c.data);
     if (a < 0)
         return true;
