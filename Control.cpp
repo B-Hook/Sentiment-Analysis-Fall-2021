@@ -9,6 +9,7 @@
 Control::Control(char *file1, char *file2, char *file3, char *file4) {
     controlCenter(file1, file4, 1);
     testFile(file2, 2);
+    testSVal(file3, file4);
 }
 
 void Control::controlCenter (char* filePassed, char* oFilePassed, int type) {
@@ -51,10 +52,10 @@ void Control::controlCenter (char* filePassed, char* oFilePassed, int type) {
     //cout << test << endl;
     //LinkedList list; //new LinkedList object is made
     //memset(char1, 0, strlen(char1));
-    //while (!file.eof()) {
-    while (count < 200) {
+    while (!file.eof()) {
+    //while (count < 200) {
         //vector <DSString> words;
-        count++;
+        //count++;
         if (type == 1) {
             file.getline(charS, 2, ',');
             sVal.setData(charS);
@@ -181,9 +182,10 @@ void Control::controlCenter (char* filePassed, char* oFilePassed, int type) {
 
     //}
 
-    ofstream oFile (oFilePassed);
-    oFile << "Test" << endl;
-    oFile.close();
+    //ofstream oFile (oFilePassed);
+    //oFile << "Test" << endl;
+    //oFile.close();
+    file.close();
 
     //return maps;
 }
@@ -248,12 +250,57 @@ void Control::testFile(char *filePassed, int type) {
         else{
             tweetS.emplace(id, negSVal);
         }
-        cout << id << " : " << tweetS.at(id) << endl;
+        //cout << id << " : " << tweetS.at(id) << endl;
     }
+    maps.at(0).clear();
+    maps.at(1).clear();
+    maps.clear();
+    file.close();
 }
 
 
 vector<map<DSString, int>> Control::getVectorOfMap() {
     return maps;
+}
+
+void Control::testSVal(char *sFile, char *oFile) {
+    char charIgnore[20];
+    char charS[2];
+    char charId[11];
+    int count = 0;
+    float amountRight = 0.000;
+    int amountWrong = 0;
+    vector<DSString> incorrectTweets;
+
+    ifstream file(sFile);
+    file.getline(charIgnore, 20, '\n');
+    cout << charIgnore << endl;
+
+    while (count < 200){
+        count ++;
+        file.getline(charS, 2, ',');
+        DSString sVal(charS);
+        file.getline(charId, 11, '\n');
+        DSString id(charId);
+
+        if (tweetS.at(id) == sVal){
+            amountRight++;
+        }
+        else{
+            incorrectTweets.push_back(id);
+            amountWrong++;
+        }
+    }
+    ofstream output (oFile);
+
+    output << fixed << setprecision(3) << amountRight/200 << endl;
+
+    for (int i = 0; i < incorrectTweets.size(); i++){
+        output << incorrectTweets.at(i) << " (" << i << ")" << endl;
+    }
+    cout << amountWrong << endl;
+    output.close();
+    file.close();
+
 }
 

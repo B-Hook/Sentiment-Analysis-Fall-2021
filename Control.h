@@ -19,6 +19,7 @@ public:
     Control(char*, char*, char*, char*);
     void controlCenter (char*, char*, int);
     void testFile (char*, int);
+    void testSVal (char*, char*);
     vector <map<DSString, int>> getVectorOfMap ();
 
 private:
