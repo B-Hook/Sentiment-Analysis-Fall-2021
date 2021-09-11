@@ -27,8 +27,8 @@ int main(int argc, char** argv) {
     }
     //if (file1.is_open()){
     else {
-        Control starterObj;
-        starterObj.controlCenter(argv[1], argv[4], 1);
+        Control starterObj(argv[1], argv[2], argv[3], argv[4]);
+        //starterObj.controlCenter(argv[1], argv[4], 1);
         cout << "Size: " << starterObj.getVectorOfMap().size() << endl;
         //vector <map<DSString, int>> maps = controlCenter(argv[1], argv[4], 1);
         //map <DSString, DSString> testMap = test(maps, argv[2], 2);

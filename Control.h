@@ -16,8 +16,9 @@ class Control {
 
 
 public:
-    //Control();
-    void controlCenter (char* filePassed, char* oFilePassed, int type);
+    Control(char*, char*, char*, char*);
+    void controlCenter (char*, char*, int);
+    void testFile (char*, int);
     vector <map<DSString, int>> getVectorOfMap ();
 
 private:
@@ -25,6 +26,7 @@ private:
     //int count;
     //map<DSString, int> negative;
     vector <map<DSString, int>> maps;
+    map <DSString, int> tweetS;
 };
 
 
