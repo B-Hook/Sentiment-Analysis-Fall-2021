@@ -1,7 +1,7 @@
 //
 // Created by Braiden Hook on 9/7/21.
 //
-#include <fstream>
+/*#include <fstream>
 #include "LinkedList.h"
 using namespace std;
 // Default Constructor
@@ -98,7 +98,7 @@ void LinkedList::append(Tweet tweet) {
 
         delete temp;
     }
-}*/
+}
 void LinkedList::display() {
     // implement search
     Node *curr = this->head;
@@ -144,7 +144,7 @@ int LinkedList::getSize() {
     return count;
 }
 
-/*void LinkedList::remove1(LinkedList &positive) {
+void LinkedList::remove1(LinkedList &positive) {
 
     Node *negCurr = this->head;
     //Node *negPrev = negCurr;

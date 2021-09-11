@@ -44,11 +44,11 @@ void Control::controlCenter (char* filePassed, char* oFilePassed, int type) {
                 DSString actualTweet(charWords);
 
                 if (actualTweet.getLength() > 2) {
-
                     if (sVal[0] == '0') {
                         //search - list for current word
                         //if (negative.search(actualTweet)) {}
                         if (negative.count(actualTweet) == 0) {
+                            //DSString char3Word = actualTweet.substring(0, 3);
                             negative.emplace(actualTweet, 1);
                         } else {
                             //Tweet word(actualTweet, 1);

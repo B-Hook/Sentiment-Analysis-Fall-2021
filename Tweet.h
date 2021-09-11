@@ -1,7 +1,7 @@
 //
 // Created by Braiden Hook on 9/7/21.
 //
-
+/*
 #ifndef MAIN_CPP_TWEET_H
 #define MAIN_CPP_TWEET_H
 #include <iostream>
@@ -27,12 +27,12 @@ public:
     ~Tweet();
     void display(int);
     // Getters and Setters
-    /*void setSVal(DSString&);
+    void setSVal(DSString&);
     DSString getSVal();
     void setId(DSString&);
     DSString getId();
     void setActualTweet(vector<DSString>&);
-    vector <DSString> getActualTweet();*/
+    vector <DSString> getActualTweet();
     void setWord(DSString&);
     DSString getWord();
     void setCount(int);
@@ -49,3 +49,4 @@ private:
 
 
 #endif //MAIN_CPP_TWEET_H
+*/
