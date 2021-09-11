@@ -99,13 +99,6 @@ TEST_CASE("Testing DSString")
         REQUIRE(c[8] == ' ');
         REQUIRE(g[0] == 0);
     }
-    SECTION("Set DSString data"){
-        DSString str;
-        str.setData("Hello");
-        REQUIRE(str == "Hello");
-        str.setData("123");
-        REQUIRE(str == "123");
-    }
     SECTION("getLength function"){
         REQUIRE(d.getLength() == 10);
         REQUIRE(g.getLength() == 0);

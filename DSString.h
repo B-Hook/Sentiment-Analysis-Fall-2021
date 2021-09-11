@@ -65,9 +65,8 @@ public:
 
     bool operator== (const char*) const;
     bool operator== (const DSString&) const;
-    bool operator!=(const DSString &) const;
     bool operator> (const DSString&) const;
-    bool operator< (const DSString&) const;
+    bool operator< (const DSString&) const; // Created this less than for the map
     bool operator> (const char*) const;
 
     /**
@@ -75,8 +74,6 @@ public:
      * @return the character requested by reference
      */
     char& operator[] (const int);
-
-    void setData(const char*);
 
     /**
      * getLength() returns the number (count) of characters in the string.

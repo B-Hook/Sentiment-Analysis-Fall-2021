@@ -1,4 +1,3 @@
-#include <iostream>
 #include <fstream>
 #include "Control.h"
 #include "DSString.h"
@@ -8,12 +7,8 @@
 void runCatch();
 
 int main(int argc, char** argv) {
-    for(int i = 0; i < argc; i++){
-        std::cout <<"argv["<< i << "]: " << argv[i] << std::endl;
-    }
-    if (argc == 1){ runCatch(); }
-    else { Control starterObj(argv[1], argv[2], argv[3], argv[4]); }
-
+    if (argc == 1){ runCatch(); } // Runs catch test if argc == 1
+    else { Control starterObj(argv[1], argv[2], argv[3], argv[4]); } // else it sends the files to the control object
     return 0;
 }
-void runCatch(){ Catch::Session().run(); }
+void runCatch(){ Catch::Session().run(); } // Running catch test
